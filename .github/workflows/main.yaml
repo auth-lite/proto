@@ -1,0 +1,50 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  # Generate Proto & wire; ensure generated proto in repo matches buf generate (on main: auto-commit, else fail).
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up buf
+        uses: bufbuild/buf-setup-action@v1.50.0
+        with:
+          github_token: ${{ github.token }}
+
+      - name: Format
+        run: buf format --exit-code > /dev/null
+
+      - name: Lint
+        run: buf lint
+
+      - name: Generate Proto
+        run: buf generate
+
+      - name: Check generated proto consistency
+        id: proto-check
+        run: |
+          git diff --quiet gen/go/ && echo "clean=true" >> $GITHUB_OUTPUT || echo "clean=false" >> $GITHUB_OUTPUT
+
+      - name: Update generated proto on main
+        if: steps.proto-check.outputs.clean == 'false' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gen/go/
+          git commit -m "chore: sync generated proto [skip ci]"
+          git push
+
+      - name: Fail when generated proto is out of date (non-main)
+        if: steps.proto-check.outputs.clean == 'false' && github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Generated proto is out of date. Run 'make proto' and commit the changes."
+          exit 1

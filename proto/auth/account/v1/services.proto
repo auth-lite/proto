@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package auth.account.v1;
+
+import "auth/account/v1/models.proto";
+
+option go_package = "github.com/kperreau/authlite/gen/go/auth/account/v1;authAccount";
+
+service AccountService {
+  // read
+  rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {}
+  rpc GetOrCreateAccount(GetOrCreateAccountRequest) returns (GetOrCreateAccountResponse) {}
+  rpc FindExternalAccountsByEmail(FindExternalAccountsByEmailRequest) returns (FindExternalAccountsByEmailResponse) {}
+  rpc ListExternalAccountsByAccountId(ListExternalAccountsByAccountIdRequest) returns (ListExternalAccountsByAccountIdResponse) {}
+  rpc ListAccounts(ListAccountsRequest) returns (ListAccountsResponse) {}
+
+  // write
+  rpc CreateExternalAccount(CreateExternalAccountRequest) returns (CreateExternalAccountResponse) {}
+  rpc UpdateExternalAccount(UpdateExternalAccountRequest) returns (UpdateExternalAccountResponse) {}
+  rpc DeleteExternalAccount(DeleteExternalAccountRequest) returns (DeleteExternalAccountResponse) {}
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse) {}
+  rpc UpdateAccount(UpdateAccountRequest) returns (UpdateAccountResponse) {}
+  rpc DeleteAccount(DeleteAccountRequest) returns (DeleteAccountResponse) {}
+}

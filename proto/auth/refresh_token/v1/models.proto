@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package auth.refresh_token.v1;
+
+import "auth/account/v1/models.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/kperreau/authlite/gen/go/auth/refresh_token/v1;authRefreshToken";
+
+message RefreshToken {
+  string id = 1;
+  string account_id = 2;
+  string device_info = 3;
+  google.protobuf.Timestamp expires_at = 4;
+  bool is_consumed = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+}
+
+message GenerateTokensRequest {
+  auth.account.v1.Account account = 1;
+  string device_info = 2;
+  string active_org_id = 3;
+  string org_role = 4;
+  int64 membership_version = 5;
+}
+
+message GenerateTokensResponse {
+  string access = 1;
+  string refresh = 2;
+}
+
+message TradeRefreshTokenRequest {
+  string kid = 1;
+  string id = 2;
+  string account_id = 3;
+  string device_info = 4;
+  int64 issued_at = 5;
+  string active_org_id = 6;
+  string org_role = 7;
+  int64 membership_version = 8;
+}
+
+message TradeRefreshTokenResponse {
+  string access = 1;
+  string refresh = 2;
+}

@@ -1,0 +1,155 @@
+syntax = "proto3";
+
+package auth.organization.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/kperreau/authlite/gen/go/auth/organization/v1;authOrganization";
+
+enum OrgRole {
+  ORG_ROLE_UNSPECIFIED = 0;
+  ORG_ROLE_OWNER = 1;
+  ORG_ROLE_ADMIN = 2;
+  ORG_ROLE_MEMBER = 3;
+}
+
+message Organization {
+  string id = 1;
+  string name = 2;
+  string slug = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+message OrgMember {
+  string organization_id = 1;
+  string account_id = 2;
+  string role = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+message OrgInvite {
+  string id = 1;
+  string organization_id = 2;
+  string email = 3;
+  string role = 4;
+  string token = 5;
+  google.protobuf.Timestamp expires_at = 6;
+  string created_by_account_id = 7;
+  google.protobuf.Timestamp created_at = 8;
+}
+
+message OrgMembership {
+  Organization organization = 1;
+  string role = 2;
+}
+
+// Requests / Responses
+
+message CreateOrganizationRequest {
+  string name = 1;
+  string slug = 2;
+  string account_id = 3;
+}
+
+message CreateOrganizationResponse {
+  Organization organization = 1;
+}
+
+message GetOrganizationRequest {
+  string id = 1;
+}
+
+message GetOrganizationResponse {
+  Organization organization = 1;
+}
+
+message UpdateOrganizationRequest {
+  string id = 1;
+  string name = 2;
+  string slug = 3;
+  repeated string fields_to_update = 4;
+}
+
+message UpdateOrganizationResponse {
+  Organization organization = 1;
+}
+
+message ListMyOrganizationsRequest {
+  string account_id = 1;
+}
+
+message ListMyOrganizationsResponse {
+  repeated OrgMembership memberships = 1;
+}
+
+message ListOrgMembersRequest {
+  string organization_id = 1;
+}
+
+message ListOrgMembersResponse {
+  repeated OrgMember members = 1;
+}
+
+message InviteMemberRequest {
+  string organization_id = 1;
+  string email = 2;
+  string role = 3;
+  string invited_by_account_id = 4;
+}
+
+message InviteMemberResponse {
+  OrgInvite invite = 1;
+}
+
+message AcceptInviteRequest {
+  string token = 1;
+  string account_id = 2;
+}
+
+message AcceptInviteResponse {
+  string organization_id = 1;
+  string role = 2;
+}
+
+message UpdateMemberRoleRequest {
+  string organization_id = 1;
+  string account_id = 2;
+  string role = 3;
+}
+
+message UpdateMemberRoleResponse {}
+
+message RemoveMemberRequest {
+  string organization_id = 1;
+  string account_id = 2;
+}
+
+message RemoveMemberResponse {}
+
+message ListOrgInvitesRequest {
+  string organization_id = 1;
+}
+
+message ListOrgInvitesResponse {
+  repeated OrgInvite invites = 1;
+}
+
+message DeleteInviteRequest {
+  string id = 1;
+  string organization_id = 2;
+}
+
+message DeleteInviteResponse {}
+
+message SwitchOrganizationRequest {
+  string account_id = 1;
+  string organization_id = 2;
+}
+
+message SwitchOrganizationResponse {
+  string organization_id = 1;
+  string role = 2;
+  int64 membership_version = 3;
+}

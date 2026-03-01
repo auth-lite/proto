@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package auth.permission.v1;
+
+option go_package = "github.com/kperreau/authlite/gen/go/auth/permission/v1;auth_permission";
+
+message Permission {
+  string resource = 1;
+  string type = 2;
+  repeated string action = 3;
+}
