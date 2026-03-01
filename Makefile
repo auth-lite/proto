@@ -1,6 +1,4 @@
-.PHONY: proto clean tidy
-
-export GOPRIVATE=github.com/kperreau
+.PHONY: clean generate update tidy
 
 clean:
 	@rm -rf gen/go
