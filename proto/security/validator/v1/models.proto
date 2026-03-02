@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package security.validator.v1;
 
-option go_package = "github.com/kperreau/authlite/gen/go/security/validator/v1;security_validator";
+option go_package = "github.com/auth-lite/authlite/gen/go/security/validator/v1;security_validator";
 
 message Error {
   string request_id = 1;
