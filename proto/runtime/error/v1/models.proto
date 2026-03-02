@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package runtime.error.v1;
 
-option go_package = "github.com/kperreau/authlite/gen/go/runtime/error/v1;error";
+option go_package = "github.com/auth-lite/authlite/gen/go/runtime/error/v1;error";
 
 message Error {
   string id = 1;

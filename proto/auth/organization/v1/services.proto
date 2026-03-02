@@ -4,7 +4,7 @@ package auth.organization.v1;
 
 import "auth/organization/v1/models.proto";
 
-option go_package = "github.com/kperreau/authlite/gen/go/auth/organization/v1;authOrganization";
+option go_package = "github.com/auth-lite/authlite/gen/go/auth/organization/v1;authOrganization";
 
 service OrganizationService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (CreateOrganizationResponse) {}

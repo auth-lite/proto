@@ -5,7 +5,7 @@ package auth.refresh_token.v1;
 import "auth/account/v1/models.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/kperreau/authlite/gen/go/auth/refresh_token/v1;authRefreshToken";
+option go_package = "github.com/auth-lite/authlite/gen/go/auth/refresh_token/v1;authRefreshToken";
 
 message RefreshToken {
   string id = 1;

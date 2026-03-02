@@ -4,7 +4,7 @@ package api.pagination.v1;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/kperreau/authlite/gen/go/api/pagination/v1;api_pagination";
+option go_package = "github.com/auth-lite/authlite/gen/go/api/pagination/v1;api_pagination";
 
 message PaginationDate {
   google.protobuf.Timestamp date = 1;
