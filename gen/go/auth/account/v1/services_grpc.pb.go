@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	AccountService_GetAccount_FullMethodName                      = "/auth.account.v1.AccountService/GetAccount"
+	AccountService_GetAccountByEmail_FullMethodName               = "/auth.account.v1.AccountService/GetAccountByEmail"
 	AccountService_GetOrCreateAccount_FullMethodName              = "/auth.account.v1.AccountService/GetOrCreateAccount"
 	AccountService_FindExternalAccountsByEmail_FullMethodName     = "/auth.account.v1.AccountService/FindExternalAccountsByEmail"
 	AccountService_ListExternalAccountsByAccountId_FullMethodName = "/auth.account.v1.AccountService/ListExternalAccountsByAccountId"
@@ -38,6 +39,7 @@ const (
 type AccountServiceClient interface {
 	// read
 	GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*GetAccountResponse, error)
+	GetAccountByEmail(ctx context.Context, in *GetAccountByEmailRequest, opts ...grpc.CallOption) (*GetAccountByEmailResponse, error)
 	GetOrCreateAccount(ctx context.Context, in *GetOrCreateAccountRequest, opts ...grpc.CallOption) (*GetOrCreateAccountResponse, error)
 	FindExternalAccountsByEmail(ctx context.Context, in *FindExternalAccountsByEmailRequest, opts ...grpc.CallOption) (*FindExternalAccountsByEmailResponse, error)
 	ListExternalAccountsByAccountId(ctx context.Context, in *ListExternalAccountsByAccountIdRequest, opts ...grpc.CallOption) (*ListExternalAccountsByAccountIdResponse, error)
@@ -62,6 +64,15 @@ func NewAccountServiceClient(cc grpc.ClientConnInterface) AccountServiceClient {
 func (c *accountServiceClient) GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*GetAccountResponse, error) {
 	out := new(GetAccountResponse)
 	err := c.cc.Invoke(ctx, AccountService_GetAccount_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) GetAccountByEmail(ctx context.Context, in *GetAccountByEmailRequest, opts ...grpc.CallOption) (*GetAccountByEmailResponse, error) {
+	out := new(GetAccountByEmailResponse)
+	err := c.cc.Invoke(ctx, AccountService_GetAccountByEmail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -164,6 +175,7 @@ func (c *accountServiceClient) DeleteAccount(ctx context.Context, in *DeleteAcco
 type AccountServiceServer interface {
 	// read
 	GetAccount(context.Context, *GetAccountRequest) (*GetAccountResponse, error)
+	GetAccountByEmail(context.Context, *GetAccountByEmailRequest) (*GetAccountByEmailResponse, error)
 	GetOrCreateAccount(context.Context, *GetOrCreateAccountRequest) (*GetOrCreateAccountResponse, error)
 	FindExternalAccountsByEmail(context.Context, *FindExternalAccountsByEmailRequest) (*FindExternalAccountsByEmailResponse, error)
 	ListExternalAccountsByAccountId(context.Context, *ListExternalAccountsByAccountIdRequest) (*ListExternalAccountsByAccountIdResponse, error)
@@ -183,6 +195,9 @@ type UnimplementedAccountServiceServer struct {
 
 func (UnimplementedAccountServiceServer) GetAccount(context.Context, *GetAccountRequest) (*GetAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAccount not implemented")
+}
+func (UnimplementedAccountServiceServer) GetAccountByEmail(context.Context, *GetAccountByEmailRequest) (*GetAccountByEmailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAccountByEmail not implemented")
 }
 func (UnimplementedAccountServiceServer) GetOrCreateAccount(context.Context, *GetOrCreateAccountRequest) (*GetOrCreateAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrCreateAccount not implemented")
@@ -240,6 +255,24 @@ func _AccountService_GetAccount_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AccountServiceServer).GetAccount(ctx, req.(*GetAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_GetAccountByEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountByEmailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).GetAccountByEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountService_GetAccountByEmail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).GetAccountByEmail(ctx, req.(*GetAccountByEmailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -434,6 +467,10 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAccount",
 			Handler:    _AccountService_GetAccount_Handler,
+		},
+		{
+			MethodName: "GetAccountByEmail",
+			Handler:    _AccountService_GetAccountByEmail_Handler,
 		},
 		{
 			MethodName: "GetOrCreateAccount",

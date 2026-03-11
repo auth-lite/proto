@@ -23,6 +23,7 @@ const (
 	OrganizationService_GetOrganization_FullMethodName     = "/auth.organization.v1.OrganizationService/GetOrganization"
 	OrganizationService_UpdateOrganization_FullMethodName  = "/auth.organization.v1.OrganizationService/UpdateOrganization"
 	OrganizationService_ListMyOrganizations_FullMethodName = "/auth.organization.v1.OrganizationService/ListMyOrganizations"
+	OrganizationService_ListOrganizations_FullMethodName   = "/auth.organization.v1.OrganizationService/ListOrganizations"
 	OrganizationService_ListOrgMembers_FullMethodName      = "/auth.organization.v1.OrganizationService/ListOrgMembers"
 	OrganizationService_InviteMember_FullMethodName        = "/auth.organization.v1.OrganizationService/InviteMember"
 	OrganizationService_AcceptInvite_FullMethodName        = "/auth.organization.v1.OrganizationService/AcceptInvite"
@@ -41,6 +42,7 @@ type OrganizationServiceClient interface {
 	GetOrganization(ctx context.Context, in *GetOrganizationRequest, opts ...grpc.CallOption) (*GetOrganizationResponse, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*UpdateOrganizationResponse, error)
 	ListMyOrganizations(ctx context.Context, in *ListMyOrganizationsRequest, opts ...grpc.CallOption) (*ListMyOrganizationsResponse, error)
+	ListOrganizations(ctx context.Context, in *ListOrganizationsRequest, opts ...grpc.CallOption) (*ListOrganizationsResponse, error)
 	ListOrgMembers(ctx context.Context, in *ListOrgMembersRequest, opts ...grpc.CallOption) (*ListOrgMembersResponse, error)
 	InviteMember(ctx context.Context, in *InviteMemberRequest, opts ...grpc.CallOption) (*InviteMemberResponse, error)
 	AcceptInvite(ctx context.Context, in *AcceptInviteRequest, opts ...grpc.CallOption) (*AcceptInviteResponse, error)
@@ -89,6 +91,15 @@ func (c *organizationServiceClient) UpdateOrganization(ctx context.Context, in *
 func (c *organizationServiceClient) ListMyOrganizations(ctx context.Context, in *ListMyOrganizationsRequest, opts ...grpc.CallOption) (*ListMyOrganizationsResponse, error) {
 	out := new(ListMyOrganizationsResponse)
 	err := c.cc.Invoke(ctx, OrganizationService_ListMyOrganizations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizationServiceClient) ListOrganizations(ctx context.Context, in *ListOrganizationsRequest, opts ...grpc.CallOption) (*ListOrganizationsResponse, error) {
+	out := new(ListOrganizationsResponse)
+	err := c.cc.Invoke(ctx, OrganizationService_ListOrganizations_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -175,6 +186,7 @@ type OrganizationServiceServer interface {
 	GetOrganization(context.Context, *GetOrganizationRequest) (*GetOrganizationResponse, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*UpdateOrganizationResponse, error)
 	ListMyOrganizations(context.Context, *ListMyOrganizationsRequest) (*ListMyOrganizationsResponse, error)
+	ListOrganizations(context.Context, *ListOrganizationsRequest) (*ListOrganizationsResponse, error)
 	ListOrgMembers(context.Context, *ListOrgMembersRequest) (*ListOrgMembersResponse, error)
 	InviteMember(context.Context, *InviteMemberRequest) (*InviteMemberResponse, error)
 	AcceptInvite(context.Context, *AcceptInviteRequest) (*AcceptInviteResponse, error)
@@ -200,6 +212,9 @@ func (UnimplementedOrganizationServiceServer) UpdateOrganization(context.Context
 }
 func (UnimplementedOrganizationServiceServer) ListMyOrganizations(context.Context, *ListMyOrganizationsRequest) (*ListMyOrganizationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListMyOrganizations not implemented")
+}
+func (UnimplementedOrganizationServiceServer) ListOrganizations(context.Context, *ListOrganizationsRequest) (*ListOrganizationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListOrganizations not implemented")
 }
 func (UnimplementedOrganizationServiceServer) ListOrgMembers(context.Context, *ListOrgMembersRequest) (*ListOrgMembersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListOrgMembers not implemented")
@@ -305,6 +320,24 @@ func _OrganizationService_ListMyOrganizations_Handler(srv interface{}, ctx conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).ListMyOrganizations(ctx, req.(*ListMyOrganizationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizationService_ListOrganizations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListOrganizationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).ListOrganizations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OrganizationService_ListOrganizations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).ListOrganizations(ctx, req.(*ListOrganizationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -475,6 +508,10 @@ var OrganizationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListMyOrganizations",
 			Handler:    _OrganizationService_ListMyOrganizations_Handler,
+		},
+		{
+			MethodName: "ListOrganizations",
+			Handler:    _OrganizationService_ListOrganizations_Handler,
 		},
 		{
 			MethodName: "ListOrgMembers",
