@@ -11,6 +11,7 @@ service OrganizationService {
   rpc GetOrganization(GetOrganizationRequest) returns (GetOrganizationResponse) {}
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (UpdateOrganizationResponse) {}
   rpc ListMyOrganizations(ListMyOrganizationsRequest) returns (ListMyOrganizationsResponse) {}
+  rpc ListOrganizations(ListOrganizationsRequest) returns (ListOrganizationsResponse) {}
 
   rpc ListOrgMembers(ListOrgMembersRequest) returns (ListOrgMembersResponse) {}
   rpc InviteMember(InviteMemberRequest) returns (InviteMemberResponse) {}

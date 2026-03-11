@@ -84,6 +84,16 @@ message ListMyOrganizationsResponse {
   repeated OrgMembership memberships = 1;
 }
 
+message ListOrganizationsRequest {
+  bytes page = 1;
+  uint32 limit = 2;
+}
+
+message ListOrganizationsResponse {
+  repeated Organization organizations = 1;
+  bytes next_page = 2;
+}
+
 message ListOrgMembersRequest {
   string organization_id = 1;
 }

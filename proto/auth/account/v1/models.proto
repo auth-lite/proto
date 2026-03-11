@@ -56,6 +56,14 @@ message GetAccountResponse {
   Account account = 1;
 }
 
+message GetAccountByEmailRequest {
+  string email = 1;
+}
+
+message GetAccountByEmailResponse {
+  Account account = 1;
+}
+
 message CreateAccountRequest {
   Account account = 1;
 }
