@@ -63,6 +63,8 @@ message GetOrganizationRequest {
 
 message GetOrganizationResponse {
   Organization organization = 1;
+  int32 members_count = 2;           // always set by server
+  int32 pending_invites_count = 3;   // always set by server
 }
 
 message UpdateOrganizationRequest {
@@ -162,4 +164,22 @@ message SwitchOrganizationResponse {
   string organization_id = 1;
   string role = 2;
   int64 membership_version = 3;
+}
+
+message DeleteOrganizationRequest {
+  string organization_id = 1;
+  string requested_by_account_id = 2;  // for user flow; empty when force_admin_delete is true
+  bool force_admin_delete = 3;
+}
+
+message DeleteOrganizationResponse {}
+
+message GetOrganizationBySlugRequest {
+  string slug = 1;
+}
+
+message GetOrganizationBySlugResponse {
+  Organization organization = 1;
+  int32 members_count = 2;           // always set by server
+  int32 pending_invites_count = 3;   // always set by server
 }

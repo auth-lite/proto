@@ -9,9 +9,11 @@ option go_package = "github.com/auth-lite/authlite/gen/go/auth/organization/v1;a
 service OrganizationService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (CreateOrganizationResponse) {}
   rpc GetOrganization(GetOrganizationRequest) returns (GetOrganizationResponse) {}
+  rpc GetOrganizationBySlug(GetOrganizationBySlugRequest) returns (GetOrganizationBySlugResponse) {}
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (UpdateOrganizationResponse) {}
   rpc ListMyOrganizations(ListMyOrganizationsRequest) returns (ListMyOrganizationsResponse) {}
   rpc ListOrganizations(ListOrganizationsRequest) returns (ListOrganizationsResponse) {}
+  rpc DeleteOrganization(DeleteOrganizationRequest) returns (DeleteOrganizationResponse) {}
 
   rpc ListOrgMembers(ListOrgMembersRequest) returns (ListOrgMembersResponse) {}
   rpc InviteMember(InviteMemberRequest) returns (InviteMemberResponse) {}
