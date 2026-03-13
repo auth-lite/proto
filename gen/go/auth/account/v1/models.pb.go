@@ -534,6 +534,100 @@ func (x *GetAccountResponse) GetAccount() *Account {
 	return nil
 }
 
+type GetAccountByEmailRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+}
+
+func (x *GetAccountByEmailRequest) Reset() {
+	*x = GetAccountByEmailRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_account_v1_models_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetAccountByEmailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountByEmailRequest) ProtoMessage() {}
+
+func (x *GetAccountByEmailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_account_v1_models_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountByEmailRequest.ProtoReflect.Descriptor instead.
+func (*GetAccountByEmailRequest) Descriptor() ([]byte, []int) {
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetAccountByEmailRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+type GetAccountByEmailResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Account *Account `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+}
+
+func (x *GetAccountByEmailResponse) Reset() {
+	*x = GetAccountByEmailResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_account_v1_models_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetAccountByEmailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountByEmailResponse) ProtoMessage() {}
+
+func (x *GetAccountByEmailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_account_v1_models_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountByEmailResponse.ProtoReflect.Descriptor instead.
+func (*GetAccountByEmailResponse) Descriptor() ([]byte, []int) {
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetAccountByEmailResponse) GetAccount() *Account {
+	if x != nil {
+		return x.Account
+	}
+	return nil
+}
+
 type CreateAccountRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -545,7 +639,7 @@ type CreateAccountRequest struct {
 func (x *CreateAccountRequest) Reset() {
 	*x = CreateAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[8]
+		mi := &file_auth_account_v1_models_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -558,7 +652,7 @@ func (x *CreateAccountRequest) String() string {
 func (*CreateAccountRequest) ProtoMessage() {}
 
 func (x *CreateAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[8]
+	mi := &file_auth_account_v1_models_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -571,7 +665,7 @@ func (x *CreateAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAccountRequest.ProtoReflect.Descriptor instead.
 func (*CreateAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{8}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CreateAccountRequest) GetAccount() *Account {
@@ -592,7 +686,7 @@ type CreateAccountResponse struct {
 func (x *CreateAccountResponse) Reset() {
 	*x = CreateAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[9]
+		mi := &file_auth_account_v1_models_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -605,7 +699,7 @@ func (x *CreateAccountResponse) String() string {
 func (*CreateAccountResponse) ProtoMessage() {}
 
 func (x *CreateAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[9]
+	mi := &file_auth_account_v1_models_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -618,7 +712,7 @@ func (x *CreateAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAccountResponse.ProtoReflect.Descriptor instead.
 func (*CreateAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{9}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CreateAccountResponse) GetAccount() *Account {
@@ -640,7 +734,7 @@ type UpdateAccountRequest struct {
 func (x *UpdateAccountRequest) Reset() {
 	*x = UpdateAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[10]
+		mi := &file_auth_account_v1_models_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -653,7 +747,7 @@ func (x *UpdateAccountRequest) String() string {
 func (*UpdateAccountRequest) ProtoMessage() {}
 
 func (x *UpdateAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[10]
+	mi := &file_auth_account_v1_models_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -666,7 +760,7 @@ func (x *UpdateAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAccountRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{10}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *UpdateAccountRequest) GetAccount() *Account {
@@ -692,7 +786,7 @@ type UpdateAccountResponse struct {
 func (x *UpdateAccountResponse) Reset() {
 	*x = UpdateAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[11]
+		mi := &file_auth_account_v1_models_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -705,7 +799,7 @@ func (x *UpdateAccountResponse) String() string {
 func (*UpdateAccountResponse) ProtoMessage() {}
 
 func (x *UpdateAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[11]
+	mi := &file_auth_account_v1_models_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -718,7 +812,7 @@ func (x *UpdateAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAccountResponse.ProtoReflect.Descriptor instead.
 func (*UpdateAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{11}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{13}
 }
 
 type DeleteAccountRequest struct {
@@ -732,7 +826,7 @@ type DeleteAccountRequest struct {
 func (x *DeleteAccountRequest) Reset() {
 	*x = DeleteAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[12]
+		mi := &file_auth_account_v1_models_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -745,7 +839,7 @@ func (x *DeleteAccountRequest) String() string {
 func (*DeleteAccountRequest) ProtoMessage() {}
 
 func (x *DeleteAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[12]
+	mi := &file_auth_account_v1_models_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -758,7 +852,7 @@ func (x *DeleteAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccountRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{12}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *DeleteAccountRequest) GetId() string {
@@ -777,7 +871,7 @@ type DeleteAccountResponse struct {
 func (x *DeleteAccountResponse) Reset() {
 	*x = DeleteAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[13]
+		mi := &file_auth_account_v1_models_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -790,7 +884,7 @@ func (x *DeleteAccountResponse) String() string {
 func (*DeleteAccountResponse) ProtoMessage() {}
 
 func (x *DeleteAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[13]
+	mi := &file_auth_account_v1_models_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -803,7 +897,7 @@ func (x *DeleteAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccountResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{13}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{15}
 }
 
 type FindExternalAccountsByEmailRequest struct {
@@ -818,7 +912,7 @@ type FindExternalAccountsByEmailRequest struct {
 func (x *FindExternalAccountsByEmailRequest) Reset() {
 	*x = FindExternalAccountsByEmailRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[14]
+		mi := &file_auth_account_v1_models_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -831,7 +925,7 @@ func (x *FindExternalAccountsByEmailRequest) String() string {
 func (*FindExternalAccountsByEmailRequest) ProtoMessage() {}
 
 func (x *FindExternalAccountsByEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[14]
+	mi := &file_auth_account_v1_models_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -844,7 +938,7 @@ func (x *FindExternalAccountsByEmailRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use FindExternalAccountsByEmailRequest.ProtoReflect.Descriptor instead.
 func (*FindExternalAccountsByEmailRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{14}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *FindExternalAccountsByEmailRequest) GetEmail() string {
@@ -872,7 +966,7 @@ type FindExternalAccountsByEmailResponse struct {
 func (x *FindExternalAccountsByEmailResponse) Reset() {
 	*x = FindExternalAccountsByEmailResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[15]
+		mi := &file_auth_account_v1_models_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -885,7 +979,7 @@ func (x *FindExternalAccountsByEmailResponse) String() string {
 func (*FindExternalAccountsByEmailResponse) ProtoMessage() {}
 
 func (x *FindExternalAccountsByEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[15]
+	mi := &file_auth_account_v1_models_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -898,7 +992,7 @@ func (x *FindExternalAccountsByEmailResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use FindExternalAccountsByEmailResponse.ProtoReflect.Descriptor instead.
 func (*FindExternalAccountsByEmailResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{15}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *FindExternalAccountsByEmailResponse) GetExternalAccounts() []*ExternalAccount {
@@ -919,7 +1013,7 @@ type GetOrCreateAccountRequest struct {
 func (x *GetOrCreateAccountRequest) Reset() {
 	*x = GetOrCreateAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[16]
+		mi := &file_auth_account_v1_models_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -932,7 +1026,7 @@ func (x *GetOrCreateAccountRequest) String() string {
 func (*GetOrCreateAccountRequest) ProtoMessage() {}
 
 func (x *GetOrCreateAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[16]
+	mi := &file_auth_account_v1_models_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -945,7 +1039,7 @@ func (x *GetOrCreateAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrCreateAccountRequest.ProtoReflect.Descriptor instead.
 func (*GetOrCreateAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{16}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetOrCreateAccountRequest) GetExternalAccount() *ExternalAccount {
@@ -967,7 +1061,7 @@ type GetOrCreateAccountResponse struct {
 func (x *GetOrCreateAccountResponse) Reset() {
 	*x = GetOrCreateAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[17]
+		mi := &file_auth_account_v1_models_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -980,7 +1074,7 @@ func (x *GetOrCreateAccountResponse) String() string {
 func (*GetOrCreateAccountResponse) ProtoMessage() {}
 
 func (x *GetOrCreateAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[17]
+	mi := &file_auth_account_v1_models_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -993,7 +1087,7 @@ func (x *GetOrCreateAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrCreateAccountResponse.ProtoReflect.Descriptor instead.
 func (*GetOrCreateAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{17}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetOrCreateAccountResponse) GetAccount() *Account {
@@ -1021,7 +1115,7 @@ type CreateExternalAccountRequest struct {
 func (x *CreateExternalAccountRequest) Reset() {
 	*x = CreateExternalAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[18]
+		mi := &file_auth_account_v1_models_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1034,7 +1128,7 @@ func (x *CreateExternalAccountRequest) String() string {
 func (*CreateExternalAccountRequest) ProtoMessage() {}
 
 func (x *CreateExternalAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[18]
+	mi := &file_auth_account_v1_models_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1047,7 +1141,7 @@ func (x *CreateExternalAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateExternalAccountRequest.ProtoReflect.Descriptor instead.
 func (*CreateExternalAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{18}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CreateExternalAccountRequest) GetExternalAccount() *ExternalAccount {
@@ -1068,7 +1162,7 @@ type CreateExternalAccountResponse struct {
 func (x *CreateExternalAccountResponse) Reset() {
 	*x = CreateExternalAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[19]
+		mi := &file_auth_account_v1_models_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1081,7 +1175,7 @@ func (x *CreateExternalAccountResponse) String() string {
 func (*CreateExternalAccountResponse) ProtoMessage() {}
 
 func (x *CreateExternalAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[19]
+	mi := &file_auth_account_v1_models_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1094,7 +1188,7 @@ func (x *CreateExternalAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateExternalAccountResponse.ProtoReflect.Descriptor instead.
 func (*CreateExternalAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{19}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CreateExternalAccountResponse) GetExternalAccount() *ExternalAccount {
@@ -1116,7 +1210,7 @@ type UpdateExternalAccountRequest struct {
 func (x *UpdateExternalAccountRequest) Reset() {
 	*x = UpdateExternalAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[20]
+		mi := &file_auth_account_v1_models_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1129,7 +1223,7 @@ func (x *UpdateExternalAccountRequest) String() string {
 func (*UpdateExternalAccountRequest) ProtoMessage() {}
 
 func (x *UpdateExternalAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[20]
+	mi := &file_auth_account_v1_models_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1142,7 +1236,7 @@ func (x *UpdateExternalAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExternalAccountRequest.ProtoReflect.Descriptor instead.
 func (*UpdateExternalAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{20}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *UpdateExternalAccountRequest) GetExternalAccount() *ExternalAccount {
@@ -1168,7 +1262,7 @@ type UpdateExternalAccountResponse struct {
 func (x *UpdateExternalAccountResponse) Reset() {
 	*x = UpdateExternalAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[21]
+		mi := &file_auth_account_v1_models_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1181,7 +1275,7 @@ func (x *UpdateExternalAccountResponse) String() string {
 func (*UpdateExternalAccountResponse) ProtoMessage() {}
 
 func (x *UpdateExternalAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[21]
+	mi := &file_auth_account_v1_models_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1194,7 +1288,7 @@ func (x *UpdateExternalAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExternalAccountResponse.ProtoReflect.Descriptor instead.
 func (*UpdateExternalAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{21}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{23}
 }
 
 type DeleteExternalAccountRequest struct {
@@ -1208,7 +1302,7 @@ type DeleteExternalAccountRequest struct {
 func (x *DeleteExternalAccountRequest) Reset() {
 	*x = DeleteExternalAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[22]
+		mi := &file_auth_account_v1_models_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1221,7 +1315,7 @@ func (x *DeleteExternalAccountRequest) String() string {
 func (*DeleteExternalAccountRequest) ProtoMessage() {}
 
 func (x *DeleteExternalAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[22]
+	mi := &file_auth_account_v1_models_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1234,7 +1328,7 @@ func (x *DeleteExternalAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteExternalAccountRequest.ProtoReflect.Descriptor instead.
 func (*DeleteExternalAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{22}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *DeleteExternalAccountRequest) GetId() string {
@@ -1253,7 +1347,7 @@ type DeleteExternalAccountResponse struct {
 func (x *DeleteExternalAccountResponse) Reset() {
 	*x = DeleteExternalAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_account_v1_models_proto_msgTypes[23]
+		mi := &file_auth_account_v1_models_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1266,7 +1360,7 @@ func (x *DeleteExternalAccountResponse) String() string {
 func (*DeleteExternalAccountResponse) ProtoMessage() {}
 
 func (x *DeleteExternalAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[23]
+	mi := &file_auth_account_v1_models_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1279,7 +1373,7 @@ func (x *DeleteExternalAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteExternalAccountResponse.ProtoReflect.Descriptor instead.
 func (*DeleteExternalAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{23}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{25}
 }
 
 var File_auth_account_v1_models_proto protoreflect.FileDescriptor
@@ -1364,91 +1458,99 @@ var file_auth_account_v1_models_proto_rawDesc = []byte{
 	0x12, 0x32, 0x0a, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0b, 0x32, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
 	0x2e, 0x76, 0x31, 0x2e, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x22, 0x4a, 0x0a, 0x14, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x63,
-	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x32, 0x0a, 0x07,
+	0x6f, 0x75, 0x6e, 0x74, 0x22, 0x30, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x41, 0x63, 0x63, 0x6f, 0x75,
+	0x6e, 0x74, 0x42, 0x79, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x22, 0x4f, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x41, 0x63, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07,
+	0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x4a, 0x0a, 0x14, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x32, 0x0a, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e,
+	0x76, 0x31, 0x2e, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x22, 0x4b, 0x0a, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x07,
 	0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e,
 	0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e,
 	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x22, 0x4b, 0x0a, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e,
-	0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x07, 0x61, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x61, 0x75, 0x74,
-	0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x74, 0x0a,
-	0x14, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x32, 0x0a, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63,
-	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x52, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x28, 0x0a, 0x10, 0x66, 0x69, 0x65,
-	0x6c, 0x64, 0x73, 0x5f, 0x74, 0x6f, 0x5f, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x18, 0x02, 0x20,
-	0x03, 0x28, 0x09, 0x52, 0x0e, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x54, 0x6f, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x22, 0x17, 0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x0a, 0x14,
-	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x02, 0x69, 0x64, 0x22, 0x17, 0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63,
-	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x50, 0x0a,
-	0x22, 0x46, 0x69, 0x6e, 0x64, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d,
-	0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x22,
-	0x74, 0x0a, 0x23, 0x46, 0x69, 0x6e, 0x64, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41,
-	0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4d, 0x0a, 0x11, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e,
-	0x61, 0x6c, 0x5f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
-	0x0b, 0x32, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x2e, 0x76, 0x31, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f,
-	0x75, 0x6e, 0x74, 0x52, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x73, 0x22, 0x68, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x4f, 0x72, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x5f, 0x61,
-	0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x61,
-	0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x45,
-	0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0f,
-	0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22,
-	0x76, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x4f, 0x72, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x63,
-	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a,
-	0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18,
-	0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31,
-	0x2e, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e,
-	0x74, 0x12, 0x24, 0x0a, 0x0e, 0x69, 0x73, 0x5f, 0x6e, 0x65, 0x77, 0x5f, 0x61, 0x63, 0x63, 0x6f,
-	0x75, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0c, 0x69, 0x73, 0x4e, 0x65, 0x77,
-	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x6b, 0x0a, 0x1c, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72,
-	0x6e, 0x61, 0x6c, 0x5f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x2e, 0x76, 0x31, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f,
-	0x75, 0x6e, 0x74, 0x52, 0x0f, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x22, 0x6c, 0x0a, 0x1d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x45, 0x78,
-	0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61,
+	0x22, 0x74, 0x0a, 0x14, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e,
+	0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x32, 0x0a, 0x07, 0x61, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68,
+	0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x28, 0x0a, 0x10,
+	0x66, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x5f, 0x74, 0x6f, 0x5f, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0e, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x54, 0x6f,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x22, 0x17, 0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x26, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x17, 0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x50, 0x0a, 0x22, 0x46, 0x69, 0x6e, 0x64, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c,
+	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x14, 0x0a, 0x05,
+	0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x6c, 0x69, 0x6d,
+	0x69, 0x74, 0x22, 0x74, 0x0a, 0x23, 0x46, 0x69, 0x6e, 0x64, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e,
+	0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x45, 0x6d, 0x61, 0x69,
+	0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4d, 0x0a, 0x11, 0x65, 0x78, 0x74,
+	0x65, 0x72, 0x6e, 0x61, 0x6c, 0x5f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41,
+	0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c,
+	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x22, 0x68, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x4f,
+	0x72, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61,
 	0x6c, 0x5f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
 	0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76,
 	0x31, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e,
 	0x74, 0x52, 0x0f, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75,
-	0x6e, 0x74, 0x22, 0x95, 0x01, 0x0a, 0x1c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x45, 0x78, 0x74,
-	0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x5f,
-	0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e,
-	0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e,
+	0x6e, 0x74, 0x22, 0x76, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x4f, 0x72, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x32, 0x0a, 0x07, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
+	0x2e, 0x76, 0x31, 0x2e, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x63, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x12, 0x24, 0x0a, 0x0e, 0x69, 0x73, 0x5f, 0x6e, 0x65, 0x77, 0x5f, 0x61,
+	0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0c, 0x69, 0x73,
+	0x4e, 0x65, 0x77, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x6b, 0x0a, 0x1c, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78,
+	0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x5f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41,
+	0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0f, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c,
+	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x6c, 0x0a, 0x1d, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78, 0x74, 0x65,
+	0x72, 0x6e, 0x61, 0x6c, 0x5f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e,
+	0x74, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0f, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63,
+	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x95, 0x01, 0x0a, 0x1c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
 	0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52,
-	0x0f, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x12, 0x28, 0x0a, 0x10, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x5f, 0x74, 0x6f, 0x5f, 0x75, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0e, 0x66, 0x69, 0x65, 0x6c,
-	0x64, 0x73, 0x54, 0x6f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x22, 0x1f, 0x0a, 0x1d, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f,
-	0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2e, 0x0a, 0x1c, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x1f, 0x0a, 0x1d, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x42, 0x5a, 0x40,
-	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x75, 0x74, 0x68, 0x2d,
-	0x6c, 0x69, 0x74, 0x65, 0x2f, 0x61, 0x75, 0x74, 0x68, 0x6c, 0x69, 0x74, 0x65, 0x2f, 0x67, 0x65,
-	0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x61, 0x75, 0x74, 0x68, 0x2f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e,
-	0x74, 0x2f, 0x76, 0x31, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x4b, 0x0a, 0x10, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e,
+	0x61, 0x6c, 0x5f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e,
+	0x76, 0x31, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75,
+	0x6e, 0x74, 0x52, 0x0f, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x12, 0x28, 0x0a, 0x10, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x5f, 0x74, 0x6f,
+	0x5f, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0e, 0x66,
+	0x69, 0x65, 0x6c, 0x64, 0x73, 0x54, 0x6f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x22, 0x1f, 0x0a,
+	0x1d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x41,
+	0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2e,
+	0x0a, 0x1c, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c,
+	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x1f,
+	0x0a, 0x1d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c,
+	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42,
+	0x42, 0x5a, 0x40, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x75,
+	0x74, 0x68, 0x2d, 0x6c, 0x69, 0x74, 0x65, 0x2f, 0x61, 0x75, 0x74, 0x68, 0x6c, 0x69, 0x74, 0x65,
+	0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x61, 0x75, 0x74, 0x68, 0x2f, 0x61, 0x63, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x41, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1463,7 +1565,7 @@ func file_auth_account_v1_models_proto_rawDescGZIP() []byte {
 	return file_auth_account_v1_models_proto_rawDescData
 }
 
-var file_auth_account_v1_models_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_auth_account_v1_models_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_auth_account_v1_models_proto_goTypes = []interface{}{
 	(*ExternalAccount)(nil),                         // 0: auth.account.v1.ExternalAccount
 	(*Account)(nil),                                 // 1: auth.account.v1.Account
@@ -1473,49 +1575,52 @@ var file_auth_account_v1_models_proto_goTypes = []interface{}{
 	(*ListAccountsResponse)(nil),                    // 5: auth.account.v1.ListAccountsResponse
 	(*GetAccountRequest)(nil),                       // 6: auth.account.v1.GetAccountRequest
 	(*GetAccountResponse)(nil),                      // 7: auth.account.v1.GetAccountResponse
-	(*CreateAccountRequest)(nil),                    // 8: auth.account.v1.CreateAccountRequest
-	(*CreateAccountResponse)(nil),                   // 9: auth.account.v1.CreateAccountResponse
-	(*UpdateAccountRequest)(nil),                    // 10: auth.account.v1.UpdateAccountRequest
-	(*UpdateAccountResponse)(nil),                   // 11: auth.account.v1.UpdateAccountResponse
-	(*DeleteAccountRequest)(nil),                    // 12: auth.account.v1.DeleteAccountRequest
-	(*DeleteAccountResponse)(nil),                   // 13: auth.account.v1.DeleteAccountResponse
-	(*FindExternalAccountsByEmailRequest)(nil),      // 14: auth.account.v1.FindExternalAccountsByEmailRequest
-	(*FindExternalAccountsByEmailResponse)(nil),     // 15: auth.account.v1.FindExternalAccountsByEmailResponse
-	(*GetOrCreateAccountRequest)(nil),               // 16: auth.account.v1.GetOrCreateAccountRequest
-	(*GetOrCreateAccountResponse)(nil),              // 17: auth.account.v1.GetOrCreateAccountResponse
-	(*CreateExternalAccountRequest)(nil),            // 18: auth.account.v1.CreateExternalAccountRequest
-	(*CreateExternalAccountResponse)(nil),           // 19: auth.account.v1.CreateExternalAccountResponse
-	(*UpdateExternalAccountRequest)(nil),            // 20: auth.account.v1.UpdateExternalAccountRequest
-	(*UpdateExternalAccountResponse)(nil),           // 21: auth.account.v1.UpdateExternalAccountResponse
-	(*DeleteExternalAccountRequest)(nil),            // 22: auth.account.v1.DeleteExternalAccountRequest
-	(*DeleteExternalAccountResponse)(nil),           // 23: auth.account.v1.DeleteExternalAccountResponse
-	(*timestamppb.Timestamp)(nil),                   // 24: google.protobuf.Timestamp
-	(*v1.Permission)(nil),                           // 25: auth.permission.v1.Permission
+	(*GetAccountByEmailRequest)(nil),                // 8: auth.account.v1.GetAccountByEmailRequest
+	(*GetAccountByEmailResponse)(nil),               // 9: auth.account.v1.GetAccountByEmailResponse
+	(*CreateAccountRequest)(nil),                    // 10: auth.account.v1.CreateAccountRequest
+	(*CreateAccountResponse)(nil),                   // 11: auth.account.v1.CreateAccountResponse
+	(*UpdateAccountRequest)(nil),                    // 12: auth.account.v1.UpdateAccountRequest
+	(*UpdateAccountResponse)(nil),                   // 13: auth.account.v1.UpdateAccountResponse
+	(*DeleteAccountRequest)(nil),                    // 14: auth.account.v1.DeleteAccountRequest
+	(*DeleteAccountResponse)(nil),                   // 15: auth.account.v1.DeleteAccountResponse
+	(*FindExternalAccountsByEmailRequest)(nil),      // 16: auth.account.v1.FindExternalAccountsByEmailRequest
+	(*FindExternalAccountsByEmailResponse)(nil),     // 17: auth.account.v1.FindExternalAccountsByEmailResponse
+	(*GetOrCreateAccountRequest)(nil),               // 18: auth.account.v1.GetOrCreateAccountRequest
+	(*GetOrCreateAccountResponse)(nil),              // 19: auth.account.v1.GetOrCreateAccountResponse
+	(*CreateExternalAccountRequest)(nil),            // 20: auth.account.v1.CreateExternalAccountRequest
+	(*CreateExternalAccountResponse)(nil),           // 21: auth.account.v1.CreateExternalAccountResponse
+	(*UpdateExternalAccountRequest)(nil),            // 22: auth.account.v1.UpdateExternalAccountRequest
+	(*UpdateExternalAccountResponse)(nil),           // 23: auth.account.v1.UpdateExternalAccountResponse
+	(*DeleteExternalAccountRequest)(nil),            // 24: auth.account.v1.DeleteExternalAccountRequest
+	(*DeleteExternalAccountResponse)(nil),           // 25: auth.account.v1.DeleteExternalAccountResponse
+	(*timestamppb.Timestamp)(nil),                   // 26: google.protobuf.Timestamp
+	(*v1.Permission)(nil),                           // 27: auth.permission.v1.Permission
 }
 var file_auth_account_v1_models_proto_depIdxs = []int32{
-	24, // 0: auth.account.v1.ExternalAccount.created_at:type_name -> google.protobuf.Timestamp
-	24, // 1: auth.account.v1.ExternalAccount.updated_at:type_name -> google.protobuf.Timestamp
-	25, // 2: auth.account.v1.Account.permissions:type_name -> auth.permission.v1.Permission
-	24, // 3: auth.account.v1.Account.created_at:type_name -> google.protobuf.Timestamp
-	24, // 4: auth.account.v1.Account.updated_at:type_name -> google.protobuf.Timestamp
+	26, // 0: auth.account.v1.ExternalAccount.created_at:type_name -> google.protobuf.Timestamp
+	26, // 1: auth.account.v1.ExternalAccount.updated_at:type_name -> google.protobuf.Timestamp
+	27, // 2: auth.account.v1.Account.permissions:type_name -> auth.permission.v1.Permission
+	26, // 3: auth.account.v1.Account.created_at:type_name -> google.protobuf.Timestamp
+	26, // 4: auth.account.v1.Account.updated_at:type_name -> google.protobuf.Timestamp
 	0,  // 5: auth.account.v1.ListExternalAccountsByAccountIdResponse.external_accounts:type_name -> auth.account.v1.ExternalAccount
-	24, // 6: auth.account.v1.ListAccountsRequest.created_at:type_name -> google.protobuf.Timestamp
+	26, // 6: auth.account.v1.ListAccountsRequest.created_at:type_name -> google.protobuf.Timestamp
 	1,  // 7: auth.account.v1.ListAccountsResponse.accounts:type_name -> auth.account.v1.Account
 	1,  // 8: auth.account.v1.GetAccountResponse.account:type_name -> auth.account.v1.Account
-	1,  // 9: auth.account.v1.CreateAccountRequest.account:type_name -> auth.account.v1.Account
-	1,  // 10: auth.account.v1.CreateAccountResponse.account:type_name -> auth.account.v1.Account
-	1,  // 11: auth.account.v1.UpdateAccountRequest.account:type_name -> auth.account.v1.Account
-	0,  // 12: auth.account.v1.FindExternalAccountsByEmailResponse.external_accounts:type_name -> auth.account.v1.ExternalAccount
-	0,  // 13: auth.account.v1.GetOrCreateAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
-	1,  // 14: auth.account.v1.GetOrCreateAccountResponse.account:type_name -> auth.account.v1.Account
-	0,  // 15: auth.account.v1.CreateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
-	0,  // 16: auth.account.v1.CreateExternalAccountResponse.external_account:type_name -> auth.account.v1.ExternalAccount
-	0,  // 17: auth.account.v1.UpdateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
-	18, // [18:18] is the sub-list for method output_type
-	18, // [18:18] is the sub-list for method input_type
-	18, // [18:18] is the sub-list for extension type_name
-	18, // [18:18] is the sub-list for extension extendee
-	0,  // [0:18] is the sub-list for field type_name
+	1,  // 9: auth.account.v1.GetAccountByEmailResponse.account:type_name -> auth.account.v1.Account
+	1,  // 10: auth.account.v1.CreateAccountRequest.account:type_name -> auth.account.v1.Account
+	1,  // 11: auth.account.v1.CreateAccountResponse.account:type_name -> auth.account.v1.Account
+	1,  // 12: auth.account.v1.UpdateAccountRequest.account:type_name -> auth.account.v1.Account
+	0,  // 13: auth.account.v1.FindExternalAccountsByEmailResponse.external_accounts:type_name -> auth.account.v1.ExternalAccount
+	0,  // 14: auth.account.v1.GetOrCreateAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
+	1,  // 15: auth.account.v1.GetOrCreateAccountResponse.account:type_name -> auth.account.v1.Account
+	0,  // 16: auth.account.v1.CreateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
+	0,  // 17: auth.account.v1.CreateExternalAccountResponse.external_account:type_name -> auth.account.v1.ExternalAccount
+	0,  // 18: auth.account.v1.UpdateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
+	19, // [19:19] is the sub-list for method output_type
+	19, // [19:19] is the sub-list for method input_type
+	19, // [19:19] is the sub-list for extension type_name
+	19, // [19:19] is the sub-list for extension extendee
+	0,  // [0:19] is the sub-list for field type_name
 }
 
 func init() { file_auth_account_v1_models_proto_init() }
@@ -1621,7 +1726,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateAccountRequest); i {
+			switch v := v.(*GetAccountByEmailRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1633,7 +1738,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateAccountResponse); i {
+			switch v := v.(*GetAccountByEmailResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1645,7 +1750,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateAccountRequest); i {
+			switch v := v.(*CreateAccountRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1657,7 +1762,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateAccountResponse); i {
+			switch v := v.(*CreateAccountResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1669,7 +1774,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteAccountRequest); i {
+			switch v := v.(*UpdateAccountRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1681,7 +1786,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteAccountResponse); i {
+			switch v := v.(*UpdateAccountResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1693,7 +1798,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindExternalAccountsByEmailRequest); i {
+			switch v := v.(*DeleteAccountRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1705,7 +1810,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindExternalAccountsByEmailResponse); i {
+			switch v := v.(*DeleteAccountResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1717,7 +1822,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetOrCreateAccountRequest); i {
+			switch v := v.(*FindExternalAccountsByEmailRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1729,7 +1834,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetOrCreateAccountResponse); i {
+			switch v := v.(*FindExternalAccountsByEmailResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1741,7 +1846,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateExternalAccountRequest); i {
+			switch v := v.(*GetOrCreateAccountRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1753,7 +1858,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateExternalAccountResponse); i {
+			switch v := v.(*GetOrCreateAccountResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1765,7 +1870,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateExternalAccountRequest); i {
+			switch v := v.(*CreateExternalAccountRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1777,7 +1882,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateExternalAccountResponse); i {
+			switch v := v.(*CreateExternalAccountResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1789,7 +1894,7 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteExternalAccountRequest); i {
+			switch v := v.(*UpdateExternalAccountRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1801,6 +1906,30 @@ func file_auth_account_v1_models_proto_init() {
 			}
 		}
 		file_auth_account_v1_models_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateExternalAccountResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_auth_account_v1_models_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteExternalAccountRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_auth_account_v1_models_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteExternalAccountResponse); i {
 			case 0:
 				return &v.state
@@ -1819,7 +1948,7 @@ func file_auth_account_v1_models_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_auth_account_v1_models_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   24,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
