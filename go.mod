@@ -1,4 +1,4 @@
-module github.com/auth-lite/authlite
+module github.com/auth-lite/proto
 
 go 1.26.0
 
