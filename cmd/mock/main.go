@@ -12,8 +12,8 @@ import (
 )
 
 var (
-	flags         flag.FlagSet
-	enableMocks   = flags.Bool("mocks", true, "generate mock files")
+	flags       flag.FlagSet
+	enableMocks = flags.Bool("mocks", true, "generate mock files")
 )
 
 func main() {
