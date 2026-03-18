@@ -4,7 +4,7 @@ clean:
 	@rm -rf gen/go
 
 gen:
-	@buf generate
+	@buf gen
 
 update:
 	@buf dep update
