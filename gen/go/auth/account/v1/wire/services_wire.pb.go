@@ -4,8 +4,8 @@
 package authAccount_wire
 
 import (
-	pbauthAccount "github.com/auth-lite/proto/gen/go/auth/account/v1"
 	clientgrpc "github.com/auth-lite/authlite/pkg/client/grpc"
+	pbauthAccount "github.com/auth-lite/proto/gen/go/auth/account/v1"
 	"github.com/google/wire"
 )
 

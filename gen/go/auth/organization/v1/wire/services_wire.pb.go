@@ -4,8 +4,8 @@
 package authOrganization_wire
 
 import (
-	pbauthOrganization "github.com/auth-lite/proto/gen/go/auth/organization/v1"
 	clientgrpc "github.com/auth-lite/authlite/pkg/client/grpc"
+	pbauthOrganization "github.com/auth-lite/proto/gen/go/auth/organization/v1"
 	"github.com/google/wire"
 )
 

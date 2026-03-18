@@ -4,8 +4,8 @@
 package authRefreshToken_wire
 
 import (
-	pbauthRefreshToken "github.com/auth-lite/proto/gen/go/auth/refresh_token/v1"
 	clientgrpc "github.com/auth-lite/authlite/pkg/client/grpc"
+	pbauthRefreshToken "github.com/auth-lite/proto/gen/go/auth/refresh_token/v1"
 	"github.com/google/wire"
 )
 
