@@ -27,7 +27,7 @@ jobs:
         run: buf lint
 
       - name: Generate Proto
-        run: buf generate
+        run: buf gen
 
       - name: Check generated proto consistency
         id: proto-check

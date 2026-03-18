@@ -1,9 +1,9 @@
-.PHONY: clean generate update tidy
+.PHONY: clean gen update tidy
 
 clean:
 	@rm -rf gen/go
 
-generate:
+gen:
 	@buf generate
 
 update:
