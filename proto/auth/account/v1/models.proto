@@ -5,7 +5,7 @@ package auth.account.v1;
 import "auth/permission/v1/models.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/auth-lite/authlite/gen/go/auth/account/v1;authAccount";
+option go_package = "github.com/auth-lite/proto/gen/go/auth/account/v1;authAccount";
 
 message ExternalAccount {
   string id = 1;

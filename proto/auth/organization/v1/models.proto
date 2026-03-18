@@ -4,7 +4,7 @@ package auth.organization.v1;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/auth-lite/authlite/gen/go/auth/organization/v1;authOrganization";
+option go_package = "github.com/auth-lite/proto/gen/go/auth/organization/v1;authOrganization";
 
 enum OrgRole {
   ORG_ROLE_UNSPECIFIED = 0;

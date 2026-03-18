@@ -4,7 +4,7 @@ package auth.account.v1;
 
 import "auth/account/v1/models.proto";
 
-option go_package = "github.com/auth-lite/authlite/gen/go/auth/account/v1;authAccount";
+option go_package = "github.com/auth-lite/proto/gen/go/auth/account/v1;authAccount";
 
 service AccountService {
   // read

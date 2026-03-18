@@ -4,7 +4,7 @@ package auth.refresh_token.v1;
 
 import "auth/refresh_token/v1/models.proto";
 
-option go_package = "github.com/auth-lite/authlite/gen/go/auth/refresh_token/v1;authRefreshToken";
+option go_package = "github.com/auth-lite/proto/gen/go/auth/refresh_token/v1;authRefreshToken";
 
 service RefreshTokenService {
   rpc GenerateTokens(GenerateTokensRequest) returns (GenerateTokensResponse) {}
