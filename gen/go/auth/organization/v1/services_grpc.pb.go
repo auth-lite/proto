@@ -19,19 +19,21 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	OrganizationService_CreateOrganization_FullMethodName  = "/auth.organization.v1.OrganizationService/CreateOrganization"
-	OrganizationService_GetOrganization_FullMethodName     = "/auth.organization.v1.OrganizationService/GetOrganization"
-	OrganizationService_UpdateOrganization_FullMethodName  = "/auth.organization.v1.OrganizationService/UpdateOrganization"
-	OrganizationService_ListMyOrganizations_FullMethodName = "/auth.organization.v1.OrganizationService/ListMyOrganizations"
-	OrganizationService_ListOrganizations_FullMethodName   = "/auth.organization.v1.OrganizationService/ListOrganizations"
-	OrganizationService_ListOrgMembers_FullMethodName      = "/auth.organization.v1.OrganizationService/ListOrgMembers"
-	OrganizationService_InviteMember_FullMethodName        = "/auth.organization.v1.OrganizationService/InviteMember"
-	OrganizationService_AcceptInvite_FullMethodName        = "/auth.organization.v1.OrganizationService/AcceptInvite"
-	OrganizationService_UpdateMemberRole_FullMethodName    = "/auth.organization.v1.OrganizationService/UpdateMemberRole"
-	OrganizationService_RemoveMember_FullMethodName        = "/auth.organization.v1.OrganizationService/RemoveMember"
-	OrganizationService_ListOrgInvites_FullMethodName      = "/auth.organization.v1.OrganizationService/ListOrgInvites"
-	OrganizationService_DeleteInvite_FullMethodName        = "/auth.organization.v1.OrganizationService/DeleteInvite"
-	OrganizationService_SwitchOrganization_FullMethodName  = "/auth.organization.v1.OrganizationService/SwitchOrganization"
+	OrganizationService_CreateOrganization_FullMethodName    = "/auth.organization.v1.OrganizationService/CreateOrganization"
+	OrganizationService_GetOrganization_FullMethodName       = "/auth.organization.v1.OrganizationService/GetOrganization"
+	OrganizationService_GetOrganizationBySlug_FullMethodName = "/auth.organization.v1.OrganizationService/GetOrganizationBySlug"
+	OrganizationService_UpdateOrganization_FullMethodName    = "/auth.organization.v1.OrganizationService/UpdateOrganization"
+	OrganizationService_ListMyOrganizations_FullMethodName   = "/auth.organization.v1.OrganizationService/ListMyOrganizations"
+	OrganizationService_ListOrganizations_FullMethodName     = "/auth.organization.v1.OrganizationService/ListOrganizations"
+	OrganizationService_DeleteOrganization_FullMethodName    = "/auth.organization.v1.OrganizationService/DeleteOrganization"
+	OrganizationService_ListOrgMembers_FullMethodName        = "/auth.organization.v1.OrganizationService/ListOrgMembers"
+	OrganizationService_InviteMember_FullMethodName          = "/auth.organization.v1.OrganizationService/InviteMember"
+	OrganizationService_AcceptInvite_FullMethodName          = "/auth.organization.v1.OrganizationService/AcceptInvite"
+	OrganizationService_UpdateMemberRole_FullMethodName      = "/auth.organization.v1.OrganizationService/UpdateMemberRole"
+	OrganizationService_RemoveMember_FullMethodName          = "/auth.organization.v1.OrganizationService/RemoveMember"
+	OrganizationService_ListOrgInvites_FullMethodName        = "/auth.organization.v1.OrganizationService/ListOrgInvites"
+	OrganizationService_DeleteInvite_FullMethodName          = "/auth.organization.v1.OrganizationService/DeleteInvite"
+	OrganizationService_SwitchOrganization_FullMethodName    = "/auth.organization.v1.OrganizationService/SwitchOrganization"
 )
 
 // OrganizationServiceClient is the client API for OrganizationService service.
@@ -40,9 +42,11 @@ const (
 type OrganizationServiceClient interface {
 	CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*CreateOrganizationResponse, error)
 	GetOrganization(ctx context.Context, in *GetOrganizationRequest, opts ...grpc.CallOption) (*GetOrganizationResponse, error)
+	GetOrganizationBySlug(ctx context.Context, in *GetOrganizationBySlugRequest, opts ...grpc.CallOption) (*GetOrganizationBySlugResponse, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*UpdateOrganizationResponse, error)
 	ListMyOrganizations(ctx context.Context, in *ListMyOrganizationsRequest, opts ...grpc.CallOption) (*ListMyOrganizationsResponse, error)
 	ListOrganizations(ctx context.Context, in *ListOrganizationsRequest, opts ...grpc.CallOption) (*ListOrganizationsResponse, error)
+	DeleteOrganization(ctx context.Context, in *DeleteOrganizationRequest, opts ...grpc.CallOption) (*DeleteOrganizationResponse, error)
 	ListOrgMembers(ctx context.Context, in *ListOrgMembersRequest, opts ...grpc.CallOption) (*ListOrgMembersResponse, error)
 	InviteMember(ctx context.Context, in *InviteMemberRequest, opts ...grpc.CallOption) (*InviteMemberResponse, error)
 	AcceptInvite(ctx context.Context, in *AcceptInviteRequest, opts ...grpc.CallOption) (*AcceptInviteResponse, error)
@@ -79,6 +83,15 @@ func (c *organizationServiceClient) GetOrganization(ctx context.Context, in *Get
 	return out, nil
 }
 
+func (c *organizationServiceClient) GetOrganizationBySlug(ctx context.Context, in *GetOrganizationBySlugRequest, opts ...grpc.CallOption) (*GetOrganizationBySlugResponse, error) {
+	out := new(GetOrganizationBySlugResponse)
+	err := c.cc.Invoke(ctx, OrganizationService_GetOrganizationBySlug_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *organizationServiceClient) UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*UpdateOrganizationResponse, error) {
 	out := new(UpdateOrganizationResponse)
 	err := c.cc.Invoke(ctx, OrganizationService_UpdateOrganization_FullMethodName, in, out, opts...)
@@ -100,6 +113,15 @@ func (c *organizationServiceClient) ListMyOrganizations(ctx context.Context, in 
 func (c *organizationServiceClient) ListOrganizations(ctx context.Context, in *ListOrganizationsRequest, opts ...grpc.CallOption) (*ListOrganizationsResponse, error) {
 	out := new(ListOrganizationsResponse)
 	err := c.cc.Invoke(ctx, OrganizationService_ListOrganizations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizationServiceClient) DeleteOrganization(ctx context.Context, in *DeleteOrganizationRequest, opts ...grpc.CallOption) (*DeleteOrganizationResponse, error) {
+	out := new(DeleteOrganizationResponse)
+	err := c.cc.Invoke(ctx, OrganizationService_DeleteOrganization_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -184,9 +206,11 @@ func (c *organizationServiceClient) SwitchOrganization(ctx context.Context, in *
 type OrganizationServiceServer interface {
 	CreateOrganization(context.Context, *CreateOrganizationRequest) (*CreateOrganizationResponse, error)
 	GetOrganization(context.Context, *GetOrganizationRequest) (*GetOrganizationResponse, error)
+	GetOrganizationBySlug(context.Context, *GetOrganizationBySlugRequest) (*GetOrganizationBySlugResponse, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*UpdateOrganizationResponse, error)
 	ListMyOrganizations(context.Context, *ListMyOrganizationsRequest) (*ListMyOrganizationsResponse, error)
 	ListOrganizations(context.Context, *ListOrganizationsRequest) (*ListOrganizationsResponse, error)
+	DeleteOrganization(context.Context, *DeleteOrganizationRequest) (*DeleteOrganizationResponse, error)
 	ListOrgMembers(context.Context, *ListOrgMembersRequest) (*ListOrgMembersResponse, error)
 	InviteMember(context.Context, *InviteMemberRequest) (*InviteMemberResponse, error)
 	AcceptInvite(context.Context, *AcceptInviteRequest) (*AcceptInviteResponse, error)
@@ -207,6 +231,9 @@ func (UnimplementedOrganizationServiceServer) CreateOrganization(context.Context
 func (UnimplementedOrganizationServiceServer) GetOrganization(context.Context, *GetOrganizationRequest) (*GetOrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
 }
+func (UnimplementedOrganizationServiceServer) GetOrganizationBySlug(context.Context, *GetOrganizationBySlugRequest) (*GetOrganizationBySlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrganizationBySlug not implemented")
+}
 func (UnimplementedOrganizationServiceServer) UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*UpdateOrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
 }
@@ -215,6 +242,9 @@ func (UnimplementedOrganizationServiceServer) ListMyOrganizations(context.Contex
 }
 func (UnimplementedOrganizationServiceServer) ListOrganizations(context.Context, *ListOrganizationsRequest) (*ListOrganizationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListOrganizations not implemented")
+}
+func (UnimplementedOrganizationServiceServer) DeleteOrganization(context.Context, *DeleteOrganizationRequest) (*DeleteOrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteOrganization not implemented")
 }
 func (UnimplementedOrganizationServiceServer) ListOrgMembers(context.Context, *ListOrgMembersRequest) (*ListOrgMembersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListOrgMembers not implemented")
@@ -288,6 +318,24 @@ func _OrganizationService_GetOrganization_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrganizationService_GetOrganizationBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOrganizationBySlugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).GetOrganizationBySlug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OrganizationService_GetOrganizationBySlug_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).GetOrganizationBySlug(ctx, req.(*GetOrganizationBySlugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OrganizationService_UpdateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateOrganizationRequest)
 	if err := dec(in); err != nil {
@@ -338,6 +386,24 @@ func _OrganizationService_ListOrganizations_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).ListOrganizations(ctx, req.(*ListOrganizationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizationService_DeleteOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteOrganizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).DeleteOrganization(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OrganizationService_DeleteOrganization_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).DeleteOrganization(ctx, req.(*DeleteOrganizationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -502,6 +568,10 @@ var OrganizationService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizationService_GetOrganization_Handler,
 		},
 		{
+			MethodName: "GetOrganizationBySlug",
+			Handler:    _OrganizationService_GetOrganizationBySlug_Handler,
+		},
+		{
 			MethodName: "UpdateOrganization",
 			Handler:    _OrganizationService_UpdateOrganization_Handler,
 		},
@@ -512,6 +582,10 @@ var OrganizationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListOrganizations",
 			Handler:    _OrganizationService_ListOrganizations_Handler,
+		},
+		{
+			MethodName: "DeleteOrganization",
+			Handler:    _OrganizationService_DeleteOrganization_Handler,
 		},
 		{
 			MethodName: "ListOrgMembers",
