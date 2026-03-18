@@ -77,8 +77,11 @@ func generateMocks(file *protogen.File) error {
 	mockFilePath := filepath.Join(mockDir, baseFileName+".pb.go")
 	packageName := "mock_" + string(file.GoPackageName)
 
+	// Use `go run` so we don't rely on `mockgen` being installed on $PATH (CI/fresh envs).
 	cmd := exec.Command(
-		"mockgen",
+		"go",
+		"run",
+		"go.uber.org/mock/mockgen@latest",
 		"-source="+sourceFilePath,
 		"-destination="+mockFilePath,
 		"-package="+packageName,
