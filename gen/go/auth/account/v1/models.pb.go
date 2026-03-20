@@ -125,6 +125,8 @@ type Account struct {
 	Permissions    []*v1.Permission       `protobuf:"bytes,6,rep,name=permissions,proto3" json:"permissions,omitempty"`
 	CreatedAt      *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt      *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	Fullname       string                 `protobuf:"bytes,9,opt,name=fullname,proto3" json:"fullname,omitempty"`
+	ProfilePicture string                 `protobuf:"bytes,10,opt,name=profile_picture,json=profilePicture,proto3" json:"profile_picture,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -213,6 +215,20 @@ func (x *Account) GetUpdatedAt() *timestamppb.Timestamp {
 		return x.UpdatedAt
 	}
 	return nil
+}
+
+func (x *Account) GetFullname() string {
+	if x != nil {
+		return x.Fullname
+	}
+	return ""
+}
+
+func (x *Account) GetProfilePicture() string {
+	if x != nil {
+		return x.ProfilePicture
+	}
+	return ""
 }
 
 type ListExternalAccountsByAccountIdRequest struct {
@@ -511,6 +527,94 @@ func (x *GetAccountResponse) GetAccount() *Account {
 	return nil
 }
 
+type GetAccountsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ids           []string               `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountsRequest) Reset() {
+	*x = GetAccountsRequest{}
+	mi := &file_auth_account_v1_models_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountsRequest) ProtoMessage() {}
+
+func (x *GetAccountsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_account_v1_models_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountsRequest.ProtoReflect.Descriptor instead.
+func (*GetAccountsRequest) Descriptor() ([]byte, []int) {
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetAccountsRequest) GetIds() []string {
+	if x != nil {
+		return x.Ids
+	}
+	return nil
+}
+
+type GetAccountsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Accounts      []*Account             `protobuf:"bytes,1,rep,name=accounts,proto3" json:"accounts,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountsResponse) Reset() {
+	*x = GetAccountsResponse{}
+	mi := &file_auth_account_v1_models_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountsResponse) ProtoMessage() {}
+
+func (x *GetAccountsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_account_v1_models_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountsResponse.ProtoReflect.Descriptor instead.
+func (*GetAccountsResponse) Descriptor() ([]byte, []int) {
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetAccountsResponse) GetAccounts() []*Account {
+	if x != nil {
+		return x.Accounts
+	}
+	return nil
+}
+
 type GetAccountByEmailRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
@@ -520,7 +624,7 @@ type GetAccountByEmailRequest struct {
 
 func (x *GetAccountByEmailRequest) Reset() {
 	*x = GetAccountByEmailRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[8]
+	mi := &file_auth_account_v1_models_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -532,7 +636,7 @@ func (x *GetAccountByEmailRequest) String() string {
 func (*GetAccountByEmailRequest) ProtoMessage() {}
 
 func (x *GetAccountByEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[8]
+	mi := &file_auth_account_v1_models_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -545,7 +649,7 @@ func (x *GetAccountByEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountByEmailRequest.ProtoReflect.Descriptor instead.
 func (*GetAccountByEmailRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{8}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetAccountByEmailRequest) GetEmail() string {
@@ -564,7 +668,7 @@ type GetAccountByEmailResponse struct {
 
 func (x *GetAccountByEmailResponse) Reset() {
 	*x = GetAccountByEmailResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[9]
+	mi := &file_auth_account_v1_models_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -576,7 +680,7 @@ func (x *GetAccountByEmailResponse) String() string {
 func (*GetAccountByEmailResponse) ProtoMessage() {}
 
 func (x *GetAccountByEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[9]
+	mi := &file_auth_account_v1_models_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -589,7 +693,7 @@ func (x *GetAccountByEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountByEmailResponse.ProtoReflect.Descriptor instead.
 func (*GetAccountByEmailResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{9}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetAccountByEmailResponse) GetAccount() *Account {
@@ -608,7 +712,7 @@ type CreateAccountRequest struct {
 
 func (x *CreateAccountRequest) Reset() {
 	*x = CreateAccountRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[10]
+	mi := &file_auth_account_v1_models_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -620,7 +724,7 @@ func (x *CreateAccountRequest) String() string {
 func (*CreateAccountRequest) ProtoMessage() {}
 
 func (x *CreateAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[10]
+	mi := &file_auth_account_v1_models_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -633,7 +737,7 @@ func (x *CreateAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAccountRequest.ProtoReflect.Descriptor instead.
 func (*CreateAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{10}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CreateAccountRequest) GetAccount() *Account {
@@ -652,7 +756,7 @@ type CreateAccountResponse struct {
 
 func (x *CreateAccountResponse) Reset() {
 	*x = CreateAccountResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[11]
+	mi := &file_auth_account_v1_models_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -664,7 +768,7 @@ func (x *CreateAccountResponse) String() string {
 func (*CreateAccountResponse) ProtoMessage() {}
 
 func (x *CreateAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[11]
+	mi := &file_auth_account_v1_models_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -677,7 +781,7 @@ func (x *CreateAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAccountResponse.ProtoReflect.Descriptor instead.
 func (*CreateAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{11}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreateAccountResponse) GetAccount() *Account {
@@ -697,7 +801,7 @@ type UpdateAccountRequest struct {
 
 func (x *UpdateAccountRequest) Reset() {
 	*x = UpdateAccountRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[12]
+	mi := &file_auth_account_v1_models_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -709,7 +813,7 @@ func (x *UpdateAccountRequest) String() string {
 func (*UpdateAccountRequest) ProtoMessage() {}
 
 func (x *UpdateAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[12]
+	mi := &file_auth_account_v1_models_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -722,7 +826,7 @@ func (x *UpdateAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAccountRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{12}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *UpdateAccountRequest) GetAccount() *Account {
@@ -747,7 +851,7 @@ type UpdateAccountResponse struct {
 
 func (x *UpdateAccountResponse) Reset() {
 	*x = UpdateAccountResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[13]
+	mi := &file_auth_account_v1_models_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -759,7 +863,7 @@ func (x *UpdateAccountResponse) String() string {
 func (*UpdateAccountResponse) ProtoMessage() {}
 
 func (x *UpdateAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[13]
+	mi := &file_auth_account_v1_models_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -772,7 +876,7 @@ func (x *UpdateAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAccountResponse.ProtoReflect.Descriptor instead.
 func (*UpdateAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{13}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{15}
 }
 
 type DeleteAccountRequest struct {
@@ -784,7 +888,7 @@ type DeleteAccountRequest struct {
 
 func (x *DeleteAccountRequest) Reset() {
 	*x = DeleteAccountRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[14]
+	mi := &file_auth_account_v1_models_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -796,7 +900,7 @@ func (x *DeleteAccountRequest) String() string {
 func (*DeleteAccountRequest) ProtoMessage() {}
 
 func (x *DeleteAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[14]
+	mi := &file_auth_account_v1_models_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -809,7 +913,7 @@ func (x *DeleteAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccountRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{14}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *DeleteAccountRequest) GetId() string {
@@ -827,7 +931,7 @@ type DeleteAccountResponse struct {
 
 func (x *DeleteAccountResponse) Reset() {
 	*x = DeleteAccountResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[15]
+	mi := &file_auth_account_v1_models_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -839,7 +943,7 @@ func (x *DeleteAccountResponse) String() string {
 func (*DeleteAccountResponse) ProtoMessage() {}
 
 func (x *DeleteAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[15]
+	mi := &file_auth_account_v1_models_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -852,7 +956,7 @@ func (x *DeleteAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccountResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{15}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{17}
 }
 
 type FindExternalAccountsByEmailRequest struct {
@@ -865,7 +969,7 @@ type FindExternalAccountsByEmailRequest struct {
 
 func (x *FindExternalAccountsByEmailRequest) Reset() {
 	*x = FindExternalAccountsByEmailRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[16]
+	mi := &file_auth_account_v1_models_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -877,7 +981,7 @@ func (x *FindExternalAccountsByEmailRequest) String() string {
 func (*FindExternalAccountsByEmailRequest) ProtoMessage() {}
 
 func (x *FindExternalAccountsByEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[16]
+	mi := &file_auth_account_v1_models_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -890,7 +994,7 @@ func (x *FindExternalAccountsByEmailRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use FindExternalAccountsByEmailRequest.ProtoReflect.Descriptor instead.
 func (*FindExternalAccountsByEmailRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{16}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *FindExternalAccountsByEmailRequest) GetEmail() string {
@@ -916,7 +1020,7 @@ type FindExternalAccountsByEmailResponse struct {
 
 func (x *FindExternalAccountsByEmailResponse) Reset() {
 	*x = FindExternalAccountsByEmailResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[17]
+	mi := &file_auth_account_v1_models_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -928,7 +1032,7 @@ func (x *FindExternalAccountsByEmailResponse) String() string {
 func (*FindExternalAccountsByEmailResponse) ProtoMessage() {}
 
 func (x *FindExternalAccountsByEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[17]
+	mi := &file_auth_account_v1_models_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -941,7 +1045,7 @@ func (x *FindExternalAccountsByEmailResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use FindExternalAccountsByEmailResponse.ProtoReflect.Descriptor instead.
 func (*FindExternalAccountsByEmailResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{17}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *FindExternalAccountsByEmailResponse) GetExternalAccounts() []*ExternalAccount {
@@ -960,7 +1064,7 @@ type GetOrCreateAccountRequest struct {
 
 func (x *GetOrCreateAccountRequest) Reset() {
 	*x = GetOrCreateAccountRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[18]
+	mi := &file_auth_account_v1_models_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -972,7 +1076,7 @@ func (x *GetOrCreateAccountRequest) String() string {
 func (*GetOrCreateAccountRequest) ProtoMessage() {}
 
 func (x *GetOrCreateAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[18]
+	mi := &file_auth_account_v1_models_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -985,7 +1089,7 @@ func (x *GetOrCreateAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrCreateAccountRequest.ProtoReflect.Descriptor instead.
 func (*GetOrCreateAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{18}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetOrCreateAccountRequest) GetExternalAccount() *ExternalAccount {
@@ -1005,7 +1109,7 @@ type GetOrCreateAccountResponse struct {
 
 func (x *GetOrCreateAccountResponse) Reset() {
 	*x = GetOrCreateAccountResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[19]
+	mi := &file_auth_account_v1_models_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1017,7 +1121,7 @@ func (x *GetOrCreateAccountResponse) String() string {
 func (*GetOrCreateAccountResponse) ProtoMessage() {}
 
 func (x *GetOrCreateAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[19]
+	mi := &file_auth_account_v1_models_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1030,7 +1134,7 @@ func (x *GetOrCreateAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrCreateAccountResponse.ProtoReflect.Descriptor instead.
 func (*GetOrCreateAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{19}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetOrCreateAccountResponse) GetAccount() *Account {
@@ -1056,7 +1160,7 @@ type CreateExternalAccountRequest struct {
 
 func (x *CreateExternalAccountRequest) Reset() {
 	*x = CreateExternalAccountRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[20]
+	mi := &file_auth_account_v1_models_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1068,7 +1172,7 @@ func (x *CreateExternalAccountRequest) String() string {
 func (*CreateExternalAccountRequest) ProtoMessage() {}
 
 func (x *CreateExternalAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[20]
+	mi := &file_auth_account_v1_models_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1081,7 +1185,7 @@ func (x *CreateExternalAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateExternalAccountRequest.ProtoReflect.Descriptor instead.
 func (*CreateExternalAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{20}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CreateExternalAccountRequest) GetExternalAccount() *ExternalAccount {
@@ -1100,7 +1204,7 @@ type CreateExternalAccountResponse struct {
 
 func (x *CreateExternalAccountResponse) Reset() {
 	*x = CreateExternalAccountResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[21]
+	mi := &file_auth_account_v1_models_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1112,7 +1216,7 @@ func (x *CreateExternalAccountResponse) String() string {
 func (*CreateExternalAccountResponse) ProtoMessage() {}
 
 func (x *CreateExternalAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[21]
+	mi := &file_auth_account_v1_models_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1125,7 +1229,7 @@ func (x *CreateExternalAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateExternalAccountResponse.ProtoReflect.Descriptor instead.
 func (*CreateExternalAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{21}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *CreateExternalAccountResponse) GetExternalAccount() *ExternalAccount {
@@ -1145,7 +1249,7 @@ type UpdateExternalAccountRequest struct {
 
 func (x *UpdateExternalAccountRequest) Reset() {
 	*x = UpdateExternalAccountRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[22]
+	mi := &file_auth_account_v1_models_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1157,7 +1261,7 @@ func (x *UpdateExternalAccountRequest) String() string {
 func (*UpdateExternalAccountRequest) ProtoMessage() {}
 
 func (x *UpdateExternalAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[22]
+	mi := &file_auth_account_v1_models_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1170,7 +1274,7 @@ func (x *UpdateExternalAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExternalAccountRequest.ProtoReflect.Descriptor instead.
 func (*UpdateExternalAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{22}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *UpdateExternalAccountRequest) GetExternalAccount() *ExternalAccount {
@@ -1195,7 +1299,7 @@ type UpdateExternalAccountResponse struct {
 
 func (x *UpdateExternalAccountResponse) Reset() {
 	*x = UpdateExternalAccountResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[23]
+	mi := &file_auth_account_v1_models_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1207,7 +1311,7 @@ func (x *UpdateExternalAccountResponse) String() string {
 func (*UpdateExternalAccountResponse) ProtoMessage() {}
 
 func (x *UpdateExternalAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[23]
+	mi := &file_auth_account_v1_models_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1220,7 +1324,7 @@ func (x *UpdateExternalAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExternalAccountResponse.ProtoReflect.Descriptor instead.
 func (*UpdateExternalAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{23}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{25}
 }
 
 type DeleteExternalAccountRequest struct {
@@ -1232,7 +1336,7 @@ type DeleteExternalAccountRequest struct {
 
 func (x *DeleteExternalAccountRequest) Reset() {
 	*x = DeleteExternalAccountRequest{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[24]
+	mi := &file_auth_account_v1_models_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1244,7 +1348,7 @@ func (x *DeleteExternalAccountRequest) String() string {
 func (*DeleteExternalAccountRequest) ProtoMessage() {}
 
 func (x *DeleteExternalAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[24]
+	mi := &file_auth_account_v1_models_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1257,7 +1361,7 @@ func (x *DeleteExternalAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteExternalAccountRequest.ProtoReflect.Descriptor instead.
 func (*DeleteExternalAccountRequest) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{24}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *DeleteExternalAccountRequest) GetId() string {
@@ -1275,7 +1379,7 @@ type DeleteExternalAccountResponse struct {
 
 func (x *DeleteExternalAccountResponse) Reset() {
 	*x = DeleteExternalAccountResponse{}
-	mi := &file_auth_account_v1_models_proto_msgTypes[25]
+	mi := &file_auth_account_v1_models_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1287,7 +1391,7 @@ func (x *DeleteExternalAccountResponse) String() string {
 func (*DeleteExternalAccountResponse) ProtoMessage() {}
 
 func (x *DeleteExternalAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_account_v1_models_proto_msgTypes[25]
+	mi := &file_auth_account_v1_models_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1300,7 +1404,7 @@ func (x *DeleteExternalAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteExternalAccountResponse.ProtoReflect.Descriptor instead.
 func (*DeleteExternalAccountResponse) Descriptor() ([]byte, []int) {
-	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{25}
+	return file_auth_account_v1_models_proto_rawDescGZIP(), []int{27}
 }
 
 var File_auth_account_v1_models_proto protoreflect.FileDescriptor
@@ -1319,7 +1423,7 @@ const file_auth_account_v1_models_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"\xc5\x02\n" +
+	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"\x8a\x03\n" +
 	"\aAccount\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1f\n" +
@@ -1331,7 +1435,10 @@ const file_auth_account_v1_models_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"G\n" +
+	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1a\n" +
+	"\bfullname\x18\t \x01(\tR\bfullname\x12'\n" +
+	"\x0fprofile_picture\x18\n" +
+	" \x01(\tR\x0eprofilePicture\"G\n" +
 	"&ListExternalAccountsByAccountIdRequest\x12\x1d\n" +
 	"\n" +
 	"account_id\x18\x01 \x01(\tR\taccountId\"x\n" +
@@ -1349,7 +1456,11 @@ const file_auth_account_v1_models_proto_rawDesc = "" +
 	"\x11GetAccountRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"H\n" +
 	"\x12GetAccountResponse\x122\n" +
-	"\aaccount\x18\x01 \x01(\v2\x18.auth.account.v1.AccountR\aaccount\"0\n" +
+	"\aaccount\x18\x01 \x01(\v2\x18.auth.account.v1.AccountR\aaccount\"&\n" +
+	"\x12GetAccountsRequest\x12\x10\n" +
+	"\x03ids\x18\x01 \x03(\tR\x03ids\"K\n" +
+	"\x13GetAccountsResponse\x124\n" +
+	"\baccounts\x18\x01 \x03(\v2\x18.auth.account.v1.AccountR\baccounts\"0\n" +
 	"\x18GetAccountByEmailRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\"O\n" +
 	"\x19GetAccountByEmailResponse\x122\n" +
@@ -1399,7 +1510,7 @@ func file_auth_account_v1_models_proto_rawDescGZIP() []byte {
 	return file_auth_account_v1_models_proto_rawDescData
 }
 
-var file_auth_account_v1_models_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_auth_account_v1_models_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_auth_account_v1_models_proto_goTypes = []any{
 	(*ExternalAccount)(nil),                         // 0: auth.account.v1.ExternalAccount
 	(*Account)(nil),                                 // 1: auth.account.v1.Account
@@ -1409,52 +1520,55 @@ var file_auth_account_v1_models_proto_goTypes = []any{
 	(*ListAccountsResponse)(nil),                    // 5: auth.account.v1.ListAccountsResponse
 	(*GetAccountRequest)(nil),                       // 6: auth.account.v1.GetAccountRequest
 	(*GetAccountResponse)(nil),                      // 7: auth.account.v1.GetAccountResponse
-	(*GetAccountByEmailRequest)(nil),                // 8: auth.account.v1.GetAccountByEmailRequest
-	(*GetAccountByEmailResponse)(nil),               // 9: auth.account.v1.GetAccountByEmailResponse
-	(*CreateAccountRequest)(nil),                    // 10: auth.account.v1.CreateAccountRequest
-	(*CreateAccountResponse)(nil),                   // 11: auth.account.v1.CreateAccountResponse
-	(*UpdateAccountRequest)(nil),                    // 12: auth.account.v1.UpdateAccountRequest
-	(*UpdateAccountResponse)(nil),                   // 13: auth.account.v1.UpdateAccountResponse
-	(*DeleteAccountRequest)(nil),                    // 14: auth.account.v1.DeleteAccountRequest
-	(*DeleteAccountResponse)(nil),                   // 15: auth.account.v1.DeleteAccountResponse
-	(*FindExternalAccountsByEmailRequest)(nil),      // 16: auth.account.v1.FindExternalAccountsByEmailRequest
-	(*FindExternalAccountsByEmailResponse)(nil),     // 17: auth.account.v1.FindExternalAccountsByEmailResponse
-	(*GetOrCreateAccountRequest)(nil),               // 18: auth.account.v1.GetOrCreateAccountRequest
-	(*GetOrCreateAccountResponse)(nil),              // 19: auth.account.v1.GetOrCreateAccountResponse
-	(*CreateExternalAccountRequest)(nil),            // 20: auth.account.v1.CreateExternalAccountRequest
-	(*CreateExternalAccountResponse)(nil),           // 21: auth.account.v1.CreateExternalAccountResponse
-	(*UpdateExternalAccountRequest)(nil),            // 22: auth.account.v1.UpdateExternalAccountRequest
-	(*UpdateExternalAccountResponse)(nil),           // 23: auth.account.v1.UpdateExternalAccountResponse
-	(*DeleteExternalAccountRequest)(nil),            // 24: auth.account.v1.DeleteExternalAccountRequest
-	(*DeleteExternalAccountResponse)(nil),           // 25: auth.account.v1.DeleteExternalAccountResponse
-	(*timestamppb.Timestamp)(nil),                   // 26: google.protobuf.Timestamp
-	(*v1.Permission)(nil),                           // 27: auth.permission.v1.Permission
+	(*GetAccountsRequest)(nil),                      // 8: auth.account.v1.GetAccountsRequest
+	(*GetAccountsResponse)(nil),                     // 9: auth.account.v1.GetAccountsResponse
+	(*GetAccountByEmailRequest)(nil),                // 10: auth.account.v1.GetAccountByEmailRequest
+	(*GetAccountByEmailResponse)(nil),               // 11: auth.account.v1.GetAccountByEmailResponse
+	(*CreateAccountRequest)(nil),                    // 12: auth.account.v1.CreateAccountRequest
+	(*CreateAccountResponse)(nil),                   // 13: auth.account.v1.CreateAccountResponse
+	(*UpdateAccountRequest)(nil),                    // 14: auth.account.v1.UpdateAccountRequest
+	(*UpdateAccountResponse)(nil),                   // 15: auth.account.v1.UpdateAccountResponse
+	(*DeleteAccountRequest)(nil),                    // 16: auth.account.v1.DeleteAccountRequest
+	(*DeleteAccountResponse)(nil),                   // 17: auth.account.v1.DeleteAccountResponse
+	(*FindExternalAccountsByEmailRequest)(nil),      // 18: auth.account.v1.FindExternalAccountsByEmailRequest
+	(*FindExternalAccountsByEmailResponse)(nil),     // 19: auth.account.v1.FindExternalAccountsByEmailResponse
+	(*GetOrCreateAccountRequest)(nil),               // 20: auth.account.v1.GetOrCreateAccountRequest
+	(*GetOrCreateAccountResponse)(nil),              // 21: auth.account.v1.GetOrCreateAccountResponse
+	(*CreateExternalAccountRequest)(nil),            // 22: auth.account.v1.CreateExternalAccountRequest
+	(*CreateExternalAccountResponse)(nil),           // 23: auth.account.v1.CreateExternalAccountResponse
+	(*UpdateExternalAccountRequest)(nil),            // 24: auth.account.v1.UpdateExternalAccountRequest
+	(*UpdateExternalAccountResponse)(nil),           // 25: auth.account.v1.UpdateExternalAccountResponse
+	(*DeleteExternalAccountRequest)(nil),            // 26: auth.account.v1.DeleteExternalAccountRequest
+	(*DeleteExternalAccountResponse)(nil),           // 27: auth.account.v1.DeleteExternalAccountResponse
+	(*timestamppb.Timestamp)(nil),                   // 28: google.protobuf.Timestamp
+	(*v1.Permission)(nil),                           // 29: auth.permission.v1.Permission
 }
 var file_auth_account_v1_models_proto_depIdxs = []int32{
-	26, // 0: auth.account.v1.ExternalAccount.created_at:type_name -> google.protobuf.Timestamp
-	26, // 1: auth.account.v1.ExternalAccount.updated_at:type_name -> google.protobuf.Timestamp
-	27, // 2: auth.account.v1.Account.permissions:type_name -> auth.permission.v1.Permission
-	26, // 3: auth.account.v1.Account.created_at:type_name -> google.protobuf.Timestamp
-	26, // 4: auth.account.v1.Account.updated_at:type_name -> google.protobuf.Timestamp
+	28, // 0: auth.account.v1.ExternalAccount.created_at:type_name -> google.protobuf.Timestamp
+	28, // 1: auth.account.v1.ExternalAccount.updated_at:type_name -> google.protobuf.Timestamp
+	29, // 2: auth.account.v1.Account.permissions:type_name -> auth.permission.v1.Permission
+	28, // 3: auth.account.v1.Account.created_at:type_name -> google.protobuf.Timestamp
+	28, // 4: auth.account.v1.Account.updated_at:type_name -> google.protobuf.Timestamp
 	0,  // 5: auth.account.v1.ListExternalAccountsByAccountIdResponse.external_accounts:type_name -> auth.account.v1.ExternalAccount
-	26, // 6: auth.account.v1.ListAccountsRequest.created_at:type_name -> google.protobuf.Timestamp
+	28, // 6: auth.account.v1.ListAccountsRequest.created_at:type_name -> google.protobuf.Timestamp
 	1,  // 7: auth.account.v1.ListAccountsResponse.accounts:type_name -> auth.account.v1.Account
 	1,  // 8: auth.account.v1.GetAccountResponse.account:type_name -> auth.account.v1.Account
-	1,  // 9: auth.account.v1.GetAccountByEmailResponse.account:type_name -> auth.account.v1.Account
-	1,  // 10: auth.account.v1.CreateAccountRequest.account:type_name -> auth.account.v1.Account
-	1,  // 11: auth.account.v1.CreateAccountResponse.account:type_name -> auth.account.v1.Account
-	1,  // 12: auth.account.v1.UpdateAccountRequest.account:type_name -> auth.account.v1.Account
-	0,  // 13: auth.account.v1.FindExternalAccountsByEmailResponse.external_accounts:type_name -> auth.account.v1.ExternalAccount
-	0,  // 14: auth.account.v1.GetOrCreateAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
-	1,  // 15: auth.account.v1.GetOrCreateAccountResponse.account:type_name -> auth.account.v1.Account
-	0,  // 16: auth.account.v1.CreateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
-	0,  // 17: auth.account.v1.CreateExternalAccountResponse.external_account:type_name -> auth.account.v1.ExternalAccount
-	0,  // 18: auth.account.v1.UpdateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
-	19, // [19:19] is the sub-list for method output_type
-	19, // [19:19] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	1,  // 9: auth.account.v1.GetAccountsResponse.accounts:type_name -> auth.account.v1.Account
+	1,  // 10: auth.account.v1.GetAccountByEmailResponse.account:type_name -> auth.account.v1.Account
+	1,  // 11: auth.account.v1.CreateAccountRequest.account:type_name -> auth.account.v1.Account
+	1,  // 12: auth.account.v1.CreateAccountResponse.account:type_name -> auth.account.v1.Account
+	1,  // 13: auth.account.v1.UpdateAccountRequest.account:type_name -> auth.account.v1.Account
+	0,  // 14: auth.account.v1.FindExternalAccountsByEmailResponse.external_accounts:type_name -> auth.account.v1.ExternalAccount
+	0,  // 15: auth.account.v1.GetOrCreateAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
+	1,  // 16: auth.account.v1.GetOrCreateAccountResponse.account:type_name -> auth.account.v1.Account
+	0,  // 17: auth.account.v1.CreateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
+	0,  // 18: auth.account.v1.CreateExternalAccountResponse.external_account:type_name -> auth.account.v1.ExternalAccount
+	0,  // 19: auth.account.v1.UpdateExternalAccountRequest.external_account:type_name -> auth.account.v1.ExternalAccount
+	20, // [20:20] is the sub-list for method output_type
+	20, // [20:20] is the sub-list for method input_type
+	20, // [20:20] is the sub-list for extension type_name
+	20, // [20:20] is the sub-list for extension extendee
+	0,  // [0:20] is the sub-list for field type_name
 }
 
 func init() { file_auth_account_v1_models_proto_init() }
@@ -1468,7 +1582,7 @@ func file_auth_account_v1_models_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_auth_account_v1_models_proto_rawDesc), len(file_auth_account_v1_models_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   26,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

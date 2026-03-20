@@ -24,11 +24,11 @@ var File_auth_account_v1_services_proto protoreflect.FileDescriptor
 
 const file_auth_account_v1_services_proto_rawDesc = "" +
 	"\n" +
-	"\x1eauth/account/v1/services.proto\x12\x0fauth.account.v1\x1a\x1cauth/account/v1/models.proto2\xe1\n" +
-	"\n" +
+	"\x1eauth/account/v1/services.proto\x12\x0fauth.account.v1\x1a\x1cauth/account/v1/models.proto2\xbd\v\n" +
 	"\x0eAccountService\x12W\n" +
 	"\n" +
-	"GetAccount\x12\".auth.account.v1.GetAccountRequest\x1a#.auth.account.v1.GetAccountResponse\"\x00\x12l\n" +
+	"GetAccount\x12\".auth.account.v1.GetAccountRequest\x1a#.auth.account.v1.GetAccountResponse\"\x00\x12Z\n" +
+	"\vGetAccounts\x12#.auth.account.v1.GetAccountsRequest\x1a$.auth.account.v1.GetAccountsResponse\"\x00\x12l\n" +
 	"\x11GetAccountByEmail\x12).auth.account.v1.GetAccountByEmailRequest\x1a*.auth.account.v1.GetAccountByEmailResponse\"\x00\x12o\n" +
 	"\x12GetOrCreateAccount\x12*.auth.account.v1.GetOrCreateAccountRequest\x1a+.auth.account.v1.GetOrCreateAccountResponse\"\x00\x12\x8a\x01\n" +
 	"\x1bFindExternalAccountsByEmail\x123.auth.account.v1.FindExternalAccountsByEmailRequest\x1a4.auth.account.v1.FindExternalAccountsByEmailResponse\"\x00\x12\x96\x01\n" +
@@ -43,57 +43,61 @@ const file_auth_account_v1_services_proto_rawDesc = "" +
 
 var file_auth_account_v1_services_proto_goTypes = []any{
 	(*GetAccountRequest)(nil),                       // 0: auth.account.v1.GetAccountRequest
-	(*GetAccountByEmailRequest)(nil),                // 1: auth.account.v1.GetAccountByEmailRequest
-	(*GetOrCreateAccountRequest)(nil),               // 2: auth.account.v1.GetOrCreateAccountRequest
-	(*FindExternalAccountsByEmailRequest)(nil),      // 3: auth.account.v1.FindExternalAccountsByEmailRequest
-	(*ListExternalAccountsByAccountIdRequest)(nil),  // 4: auth.account.v1.ListExternalAccountsByAccountIdRequest
-	(*ListAccountsRequest)(nil),                     // 5: auth.account.v1.ListAccountsRequest
-	(*CreateExternalAccountRequest)(nil),            // 6: auth.account.v1.CreateExternalAccountRequest
-	(*UpdateExternalAccountRequest)(nil),            // 7: auth.account.v1.UpdateExternalAccountRequest
-	(*DeleteExternalAccountRequest)(nil),            // 8: auth.account.v1.DeleteExternalAccountRequest
-	(*CreateAccountRequest)(nil),                    // 9: auth.account.v1.CreateAccountRequest
-	(*UpdateAccountRequest)(nil),                    // 10: auth.account.v1.UpdateAccountRequest
-	(*DeleteAccountRequest)(nil),                    // 11: auth.account.v1.DeleteAccountRequest
-	(*GetAccountResponse)(nil),                      // 12: auth.account.v1.GetAccountResponse
-	(*GetAccountByEmailResponse)(nil),               // 13: auth.account.v1.GetAccountByEmailResponse
-	(*GetOrCreateAccountResponse)(nil),              // 14: auth.account.v1.GetOrCreateAccountResponse
-	(*FindExternalAccountsByEmailResponse)(nil),     // 15: auth.account.v1.FindExternalAccountsByEmailResponse
-	(*ListExternalAccountsByAccountIdResponse)(nil), // 16: auth.account.v1.ListExternalAccountsByAccountIdResponse
-	(*ListAccountsResponse)(nil),                    // 17: auth.account.v1.ListAccountsResponse
-	(*CreateExternalAccountResponse)(nil),           // 18: auth.account.v1.CreateExternalAccountResponse
-	(*UpdateExternalAccountResponse)(nil),           // 19: auth.account.v1.UpdateExternalAccountResponse
-	(*DeleteExternalAccountResponse)(nil),           // 20: auth.account.v1.DeleteExternalAccountResponse
-	(*CreateAccountResponse)(nil),                   // 21: auth.account.v1.CreateAccountResponse
-	(*UpdateAccountResponse)(nil),                   // 22: auth.account.v1.UpdateAccountResponse
-	(*DeleteAccountResponse)(nil),                   // 23: auth.account.v1.DeleteAccountResponse
+	(*GetAccountsRequest)(nil),                      // 1: auth.account.v1.GetAccountsRequest
+	(*GetAccountByEmailRequest)(nil),                // 2: auth.account.v1.GetAccountByEmailRequest
+	(*GetOrCreateAccountRequest)(nil),               // 3: auth.account.v1.GetOrCreateAccountRequest
+	(*FindExternalAccountsByEmailRequest)(nil),      // 4: auth.account.v1.FindExternalAccountsByEmailRequest
+	(*ListExternalAccountsByAccountIdRequest)(nil),  // 5: auth.account.v1.ListExternalAccountsByAccountIdRequest
+	(*ListAccountsRequest)(nil),                     // 6: auth.account.v1.ListAccountsRequest
+	(*CreateExternalAccountRequest)(nil),            // 7: auth.account.v1.CreateExternalAccountRequest
+	(*UpdateExternalAccountRequest)(nil),            // 8: auth.account.v1.UpdateExternalAccountRequest
+	(*DeleteExternalAccountRequest)(nil),            // 9: auth.account.v1.DeleteExternalAccountRequest
+	(*CreateAccountRequest)(nil),                    // 10: auth.account.v1.CreateAccountRequest
+	(*UpdateAccountRequest)(nil),                    // 11: auth.account.v1.UpdateAccountRequest
+	(*DeleteAccountRequest)(nil),                    // 12: auth.account.v1.DeleteAccountRequest
+	(*GetAccountResponse)(nil),                      // 13: auth.account.v1.GetAccountResponse
+	(*GetAccountsResponse)(nil),                     // 14: auth.account.v1.GetAccountsResponse
+	(*GetAccountByEmailResponse)(nil),               // 15: auth.account.v1.GetAccountByEmailResponse
+	(*GetOrCreateAccountResponse)(nil),              // 16: auth.account.v1.GetOrCreateAccountResponse
+	(*FindExternalAccountsByEmailResponse)(nil),     // 17: auth.account.v1.FindExternalAccountsByEmailResponse
+	(*ListExternalAccountsByAccountIdResponse)(nil), // 18: auth.account.v1.ListExternalAccountsByAccountIdResponse
+	(*ListAccountsResponse)(nil),                    // 19: auth.account.v1.ListAccountsResponse
+	(*CreateExternalAccountResponse)(nil),           // 20: auth.account.v1.CreateExternalAccountResponse
+	(*UpdateExternalAccountResponse)(nil),           // 21: auth.account.v1.UpdateExternalAccountResponse
+	(*DeleteExternalAccountResponse)(nil),           // 22: auth.account.v1.DeleteExternalAccountResponse
+	(*CreateAccountResponse)(nil),                   // 23: auth.account.v1.CreateAccountResponse
+	(*UpdateAccountResponse)(nil),                   // 24: auth.account.v1.UpdateAccountResponse
+	(*DeleteAccountResponse)(nil),                   // 25: auth.account.v1.DeleteAccountResponse
 }
 var file_auth_account_v1_services_proto_depIdxs = []int32{
 	0,  // 0: auth.account.v1.AccountService.GetAccount:input_type -> auth.account.v1.GetAccountRequest
-	1,  // 1: auth.account.v1.AccountService.GetAccountByEmail:input_type -> auth.account.v1.GetAccountByEmailRequest
-	2,  // 2: auth.account.v1.AccountService.GetOrCreateAccount:input_type -> auth.account.v1.GetOrCreateAccountRequest
-	3,  // 3: auth.account.v1.AccountService.FindExternalAccountsByEmail:input_type -> auth.account.v1.FindExternalAccountsByEmailRequest
-	4,  // 4: auth.account.v1.AccountService.ListExternalAccountsByAccountId:input_type -> auth.account.v1.ListExternalAccountsByAccountIdRequest
-	5,  // 5: auth.account.v1.AccountService.ListAccounts:input_type -> auth.account.v1.ListAccountsRequest
-	6,  // 6: auth.account.v1.AccountService.CreateExternalAccount:input_type -> auth.account.v1.CreateExternalAccountRequest
-	7,  // 7: auth.account.v1.AccountService.UpdateExternalAccount:input_type -> auth.account.v1.UpdateExternalAccountRequest
-	8,  // 8: auth.account.v1.AccountService.DeleteExternalAccount:input_type -> auth.account.v1.DeleteExternalAccountRequest
-	9,  // 9: auth.account.v1.AccountService.CreateAccount:input_type -> auth.account.v1.CreateAccountRequest
-	10, // 10: auth.account.v1.AccountService.UpdateAccount:input_type -> auth.account.v1.UpdateAccountRequest
-	11, // 11: auth.account.v1.AccountService.DeleteAccount:input_type -> auth.account.v1.DeleteAccountRequest
-	12, // 12: auth.account.v1.AccountService.GetAccount:output_type -> auth.account.v1.GetAccountResponse
-	13, // 13: auth.account.v1.AccountService.GetAccountByEmail:output_type -> auth.account.v1.GetAccountByEmailResponse
-	14, // 14: auth.account.v1.AccountService.GetOrCreateAccount:output_type -> auth.account.v1.GetOrCreateAccountResponse
-	15, // 15: auth.account.v1.AccountService.FindExternalAccountsByEmail:output_type -> auth.account.v1.FindExternalAccountsByEmailResponse
-	16, // 16: auth.account.v1.AccountService.ListExternalAccountsByAccountId:output_type -> auth.account.v1.ListExternalAccountsByAccountIdResponse
-	17, // 17: auth.account.v1.AccountService.ListAccounts:output_type -> auth.account.v1.ListAccountsResponse
-	18, // 18: auth.account.v1.AccountService.CreateExternalAccount:output_type -> auth.account.v1.CreateExternalAccountResponse
-	19, // 19: auth.account.v1.AccountService.UpdateExternalAccount:output_type -> auth.account.v1.UpdateExternalAccountResponse
-	20, // 20: auth.account.v1.AccountService.DeleteExternalAccount:output_type -> auth.account.v1.DeleteExternalAccountResponse
-	21, // 21: auth.account.v1.AccountService.CreateAccount:output_type -> auth.account.v1.CreateAccountResponse
-	22, // 22: auth.account.v1.AccountService.UpdateAccount:output_type -> auth.account.v1.UpdateAccountResponse
-	23, // 23: auth.account.v1.AccountService.DeleteAccount:output_type -> auth.account.v1.DeleteAccountResponse
-	12, // [12:24] is the sub-list for method output_type
-	0,  // [0:12] is the sub-list for method input_type
+	1,  // 1: auth.account.v1.AccountService.GetAccounts:input_type -> auth.account.v1.GetAccountsRequest
+	2,  // 2: auth.account.v1.AccountService.GetAccountByEmail:input_type -> auth.account.v1.GetAccountByEmailRequest
+	3,  // 3: auth.account.v1.AccountService.GetOrCreateAccount:input_type -> auth.account.v1.GetOrCreateAccountRequest
+	4,  // 4: auth.account.v1.AccountService.FindExternalAccountsByEmail:input_type -> auth.account.v1.FindExternalAccountsByEmailRequest
+	5,  // 5: auth.account.v1.AccountService.ListExternalAccountsByAccountId:input_type -> auth.account.v1.ListExternalAccountsByAccountIdRequest
+	6,  // 6: auth.account.v1.AccountService.ListAccounts:input_type -> auth.account.v1.ListAccountsRequest
+	7,  // 7: auth.account.v1.AccountService.CreateExternalAccount:input_type -> auth.account.v1.CreateExternalAccountRequest
+	8,  // 8: auth.account.v1.AccountService.UpdateExternalAccount:input_type -> auth.account.v1.UpdateExternalAccountRequest
+	9,  // 9: auth.account.v1.AccountService.DeleteExternalAccount:input_type -> auth.account.v1.DeleteExternalAccountRequest
+	10, // 10: auth.account.v1.AccountService.CreateAccount:input_type -> auth.account.v1.CreateAccountRequest
+	11, // 11: auth.account.v1.AccountService.UpdateAccount:input_type -> auth.account.v1.UpdateAccountRequest
+	12, // 12: auth.account.v1.AccountService.DeleteAccount:input_type -> auth.account.v1.DeleteAccountRequest
+	13, // 13: auth.account.v1.AccountService.GetAccount:output_type -> auth.account.v1.GetAccountResponse
+	14, // 14: auth.account.v1.AccountService.GetAccounts:output_type -> auth.account.v1.GetAccountsResponse
+	15, // 15: auth.account.v1.AccountService.GetAccountByEmail:output_type -> auth.account.v1.GetAccountByEmailResponse
+	16, // 16: auth.account.v1.AccountService.GetOrCreateAccount:output_type -> auth.account.v1.GetOrCreateAccountResponse
+	17, // 17: auth.account.v1.AccountService.FindExternalAccountsByEmail:output_type -> auth.account.v1.FindExternalAccountsByEmailResponse
+	18, // 18: auth.account.v1.AccountService.ListExternalAccountsByAccountId:output_type -> auth.account.v1.ListExternalAccountsByAccountIdResponse
+	19, // 19: auth.account.v1.AccountService.ListAccounts:output_type -> auth.account.v1.ListAccountsResponse
+	20, // 20: auth.account.v1.AccountService.CreateExternalAccount:output_type -> auth.account.v1.CreateExternalAccountResponse
+	21, // 21: auth.account.v1.AccountService.UpdateExternalAccount:output_type -> auth.account.v1.UpdateExternalAccountResponse
+	22, // 22: auth.account.v1.AccountService.DeleteExternalAccount:output_type -> auth.account.v1.DeleteExternalAccountResponse
+	23, // 23: auth.account.v1.AccountService.CreateAccount:output_type -> auth.account.v1.CreateAccountResponse
+	24, // 24: auth.account.v1.AccountService.UpdateAccount:output_type -> auth.account.v1.UpdateAccountResponse
+	25, // 25: auth.account.v1.AccountService.DeleteAccount:output_type -> auth.account.v1.DeleteAccountResponse
+	13, // [13:26] is the sub-list for method output_type
+	0,  // [0:13] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
