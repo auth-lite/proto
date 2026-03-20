@@ -26,6 +26,8 @@ message Account {
   repeated auth.permission.v1.Permission permissions = 6;
   google.protobuf.Timestamp created_at = 7;
   google.protobuf.Timestamp updated_at = 8;
+  string fullname = 9;
+  string profile_picture = 10;
 }
 
 message ListExternalAccountsByAccountIdRequest {
@@ -54,6 +56,14 @@ message GetAccountRequest {
 
 message GetAccountResponse {
   Account account = 1;
+}
+
+message GetAccountsRequest {
+  repeated string ids = 1;
+}
+
+message GetAccountsResponse {
+  repeated Account accounts = 1;
 }
 
 message GetAccountByEmailRequest {

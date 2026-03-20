@@ -9,6 +9,7 @@ option go_package = "github.com/auth-lite/proto/gen/go/auth/account/v1;authAccou
 service AccountService {
   // read
   rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {}
+  rpc GetAccounts(GetAccountsRequest) returns (GetAccountsResponse) {}
   rpc GetAccountByEmail(GetAccountByEmailRequest) returns (GetAccountByEmailResponse) {}
   rpc GetOrCreateAccount(GetOrCreateAccountRequest) returns (GetOrCreateAccountResponse) {}
   rpc FindExternalAccountsByEmail(FindExternalAccountsByEmailRequest) returns (FindExternalAccountsByEmailResponse) {}
